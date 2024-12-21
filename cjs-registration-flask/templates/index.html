@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <style>
+        .middle
+        {
+            text-align: center;
+            font-size: large;
+            color:rgb(127, 148, 131);
+        }
+    
+    </style>
+
+
+    <footer class="middle">
+        <form action="{{ url_for('DOB') }}" method="post">
+            <input autocomplete="off" autofocus name="email" placeholder="Email" type="email">
+
+            <button type="submit">sign up</button>
+
+        </form>
+    </body>
+    
+{% endblock %}
