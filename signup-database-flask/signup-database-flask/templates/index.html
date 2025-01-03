@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        .medium
+        {
+            font-size: medium;
+            text-align: center;
+        }
+        .buttdesign
+        {
+            
+            background-color: green;
+            margin: 0 auto;
+        }
+        
+    </style>
+    <h1 class="medium">
+        We are here to make health care seamless for you. Let's
+        get you started on this journey.
+    </h1>
+    <div style="text-align: center;">
+        <a href="{{ url_for ('signuppage1') }}">
+            <button class="buttdesign">Sign up for the first time</button>
+        </a>
+    </div>
+    <p>
+        <div style="text-align: center;">
+            <a href="{{ url_for ('login') }}">
+                <button class="buttdesign">login</button>
+            </a>
+        </div>
+    </p>
+    
+{% endblock %}
