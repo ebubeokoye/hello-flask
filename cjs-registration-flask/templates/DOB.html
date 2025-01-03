@@ -3,7 +3,7 @@
 {% block body %}
 
     <h1>DOB</h1>
-    <form action="/", method="post">
+    <form action="{{ url_for ('success') }}", method="post">
         <input autocomplete="off" autofocus name="dob" placeholder="DOB" type="date">
 
         <button type="submit">DOB</button>
