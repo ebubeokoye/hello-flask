@@ -45,8 +45,8 @@ def validatepage1():
         if email in item:
             return redirect("/login")
         else:
-            return redirect("/registered")
-    return redirect("/registered")
+            return redirect("/uploadimage")
+    return redirect("/uploadimage")
 
 @app.route("/login")
 def login():
@@ -66,6 +66,13 @@ def validatelogin():
 
     return render_template("registered.html")
 
-@app.route("/registered")
+@app.route("/uploadimage")
+def uploadimage():
+    return render_template("uploadimage.html")
+
+@app.route("/registered", methods=["POST"])
 def registered():
-    return render_template("registered.html")
+    if 'file' not in request.files:
+        return redirect("/uploadimage")
+    else:
+        return render_template("registered.html")
