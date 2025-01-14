@@ -2,10 +2,22 @@
 
 {% block body %}
     <style>
-        .medium
+        body
         {
-            font-size: medium;
-            text-align: center;
+            border: 4px inset;
+            block-size: 100px;
+        }
+        .headerone
+        {
+            display: grid;
+            font-size: 30px;
+            place-items: center;
+            min-height: 20vh;
+        }
+        .headertwo
+        {
+            min-height: 10vh;
+            text-align:center;
         }
         .buttdesign
         {
@@ -15,10 +27,12 @@
         }
         
     </style>
-    <h1 class="medium">
-        We are here to make health care seamless for you. Let's
-        get you started on this journey.
+    <h1 class="headerone">
+        We are here to make health care seamless for you. 
     </h1>
+    <h2 class="headertwo">
+        Let's get you started on this journey.
+    </h2>
     <div style="text-align: center;">
         <a href="{{ url_for ('signuppage1') }}">
             <button class="buttdesign">Sign up for the first time</button>

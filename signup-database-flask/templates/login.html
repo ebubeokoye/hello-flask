@@ -1,11 +1,64 @@
 {% extends "layout.html" %}
 {% block body %}
+
+    <style>
+        body
+        {
+            border: 2px outset;
+            block-size: 300px;
+        }
+        .centered
+        {
+            text-align: center;
+        }
+
+        input[type="email"],
+        input[type="password"]
+        {
+            width: 25%;
+            padding: 10px;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-left: 2px solid red;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        function empty()
+        {
+            if (document.getElementById("password").value=="") 
+            {
+                document.getElementById("pwmessage").innerHTML= "Fill out the password field";
+                return false;
+            };
+        }
+        
+    </script>
+    <script>
+        function emailempty()
+        {
+            if(document.getElementById("email").value=="")
+            {
+                document.getElementById("emailmessage").innerHTML= "Fill out the email field";
+                return false;
+            };
+        }
+    </script>
+
     <form action="{{ url_for ('validatelogin') }}" class="centered" method="post">
         <input autocomplete="off" autofocus name="email" placeholder="email" type="email">
+        <span id='emailmessage'></span><br>
         <p>
-            <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
+            <input autocomplete="off" autofocus id="password" name="password" placeholder="Password" type="password" required minlength="8"><br>
+            <span id='pwmessage'></span><br>
+            <p>
+                <input type="submit" value="Login" onClick="return empty()">
+            </p>
         </p>
-        <p>
-            <button type="submit">Log in</button>
-        </p>
+        <a href="{{ url_for ('forgotpassword') }}">Forgot your password?</a>
+        
 {% endblock %}

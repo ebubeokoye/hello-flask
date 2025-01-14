@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, request
+
 import sqlite3
 
 
@@ -43,7 +44,7 @@ def validatepage1():
     datalist=data.fetchall()
     for item in datalist:
         if email in item:
-            return redirect("/login")
+            return render_template("signuperror.html")
         else:
             return redirect("/uploadimage")
     return redirect("/uploadimage")
@@ -59,12 +60,31 @@ def validatelogin():
 
     email=request.form.get("email")
     password=request.form.get("password")
-    if not email:
-        return redirect("/login")
-    if not password:
-        return redirect("/login")
 
-    return render_template("registered.html")
+    data=db.execute("SELECT email, password FROM signup WHERE password='" + password +"'")
+    datalist=data.fetchall()
+    print(datalist)
+    for item in datalist:
+        if password in item:
+            if email in item:
+                return render_template("welcome!(after-login).html")
+            else:
+                return redirect("/login")
+        else:
+            return redirect("/login")
+    return redirect("/login")
+
+@app.route("/forgotpassword")
+def forgotpassword():
+    return render_template("forgot-password.html")
+    
+@app.route("/smscodeforforgotpassword", methods=["POST"])
+def smscodeforforgotpassword():
+    number=request.form.get("phone number")
+    if not number:
+        return redirect("/smscodeforforgotpassword")
+    else:
+        return render_template("smscode-for-forgot-password.html")
 
 @app.route("/uploadimage")
 def uploadimage():
@@ -76,3 +96,4 @@ def registered():
         return redirect("/uploadimage")
     else:
         return render_template("registered.html")
+    
