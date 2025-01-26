@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        body
+        {
+            background-color: black;
+        }
+        .centered
+        {
+            color: white;
+            text-align:center;
+        }
+        .firsttext
+        {
+            color: white;
+            margin-top: 150px;
+            margin-bottom: -20px;
+            text-align:center;
+        }
+        .textfour
+        {
+            color: white;
+            font-weight: normal;
+            margin-top: 20px;
+            margin-bottom: -15px;
+            text-align:center;
+        }
+        .netflixtext
+        {
+            color: red;
+            position: absolute;
+            top:-320px;
+            right: 210px;
+            text-align:right;
+        }
+        input[value="Sign in"]
+        {
+            color: white;
+            background-color: rgb(236, 28, 28);
+            border: 0px;
+            border-radius: 4px;
+            padding: 6px;
+            padding-right: 13px;
+            position: absolute;
+            top:40px;
+            right: 480px;
+            text-align:right;
+            width:5%;
+        }
+        input[value="Get Started >"]
+        {
+            border: 0px;
+            border-radius: 4px;
+            color: white;
+            background-color: rgb(236, 28, 28);
+            font-size: 15px;
+            padding:6px;
+            width: 10%;
+        }
+        input[name="Email"]
+        {
+            background-color: black;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            padding: 10px;
+            width: 22%;
+        }
+        ::placeholder 
+        {
+            color: solid #ccc;
+        }
+    </style>
+    <svg class="netflixtext" viewBox="0 0 500 500">
+        <path id="curve" d="M 100,250 A 200, 200 0 0,1 400,250" fill="transparent"/>
+            <text class="netflixtext" fill="red">
+                <textPath href="#curve" startOffset="40%">
+                    NETFLIX
+                </textPath>
+            </text>
+    </svg>
+    
+    <h1 class="firsttext">
+        Unlimited movies,
+    </h1>
+    <h1 class="centered">
+        TV shows, and more
+    </h1>
+    <h4 class="centered" style="font-weight: normal;" >
+        Starts at N2,200. Cancel anytime.
+    </h4>
+    <h4 class="textfour">
+        Ready to watch? Enter your email to
+    </h4>
+    <h4 class="centered" style="font-weight: normal;">
+        create or restart your membership.
+    </h4>
+    
+    <form action = "{{ url_for ('index') }}" method="post"></form>
+        <p class="centered">
+            <input autocomplete="off" autofocus name="Email" placeholder="Email address" type="email">
+        </p>
+        <p class="centered">
+            <input type="submit" value="Get Started >">
+        </p>
+        <p class="signin">
+            <input type="submit" value="Sign in">
+        </p>
+        
+    </form>
+
+{% endblock %}
