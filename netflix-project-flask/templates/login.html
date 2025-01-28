@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        body
+        {
+            background-image: url('static/netflixBackground.jpg');
+            background-size: cover;
+            text-align: center;
+        }
+        .signintext
+        {
+            color: white;
+            font-size: 35px;
+            position: absolute;
+            top: 115px;
+            left: 480px;
+        }
+        .OR-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            opacity: 0.6;
+            position: absolute;
+            top: 405px;
+            left: 625px;
+        }
+        .forgotPassword-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            position: absolute;
+            top: 500px;
+            left: 570px;
+        }
+        input[type="checkbox"]
+        {
+            border:1px white;
+            font-weight: 1px;
+            position: absolute;
+            top: 545px;
+            left: 480px;
+            transform: scale(1.5);
+            /* zoom: 1.5; */
+        }
+        .rememberMe-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            position: absolute;
+            top: 545px;
+            left: 510px;
+        }
+        .netflixtext
+        {
+            color: red;
+            font-weight: bold;
+            position: absolute;
+            top:-330px;
+            right: 220px;
+            text-align:right;
+        }
+        input[type="email"]
+        {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 190px;
+            padding: 17px;
+            width: 25%;
+        }
+        input[type="password"]
+        {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 1px;
+            padding: 17px;
+            width: 25%;
+        }
+        input[value="Sign In"]
+        {
+            background-color: red;
+            color: white;
+            border: 1px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 1px;
+            padding: 12px;
+            width: 25%;
+        }
+        input[value="Use a Sign-In Code"]
+        {
+            background: rgba(255,255,255,0.1);
+            border: 1px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 40px;
+            padding: 12px;
+            width: 25%;
+        }
+        .long-black-rectangle
+        {
+            background-color: black;
+            width: 436px;
+            height: 600px;
+            opacity: 0.7;
+            position: absolute;
+            text-align: center;
+            top: 0px;
+            left: 413px;
+            z-index: -1;
+        }
+        .bottom-black-rectangle
+        {
+            background-color: black;
+            width: 1313px;
+            height: 300px;
+            opacity: 1;
+            position: absolute;
+            text-align: center;
+            top: 540px;
+            left: -50px;
+            z-index: -1;
+        }
+        ::placeholder 
+        {
+            color: white;
+            opacity: 1;
+        }
+    </style>
+    <div class="long-black-rectangle"></div>
+    <div class="bottom-black-rectangle"></div>
+    <div class="OR-text">OR</div>
+    <div class="forgotPassword-text">Forgot password?</div>
+    <h1 class="signintext">Sign In</h1>
+    <svg class="netflixtext" viewBox="0 0 500 500">
+        <path id="curve" d="M 100,250 A 200, 200 0 0,1 400,250" transform="translate(-150,1)" fill="transparent"/>
+            <text class="netflixtext" x="-200" y="-100" fill="red">
+                <textPath href="#curve" startOffset="100%">
+                    NETFLIX
+                </textPath>
+            </text>
+    </svg>
+    <form action="{{ url_for ('login') }}" method="post">
+        <p>
+            <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
+        </p>
+        <p>
+            <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
+        </p>
+        <p>
+            <input id="1" type="submit" value="Sign In">
+        </p>
+        <p>
+            <input id="2" type="submit" value="Use a Sign-In Code">
+        </p>
+        <p>
+            <input id="rememberMe" class="checkbox" name="rememberMe" type="checkbox" value="Remember me">
+            <label for="rememberMe" class="rememberMe-text">Remember me</label>
+        </p>
+    </form>
+
+{% endblock %}
