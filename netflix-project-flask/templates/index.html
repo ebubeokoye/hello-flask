@@ -9,6 +9,7 @@
             url('static/netflixBackground.jpg');
             background-size:cover;
             box-shadow: inset 0 0 5em 1em #000;
+            text-align: center;
         }
         .centered
         {
@@ -71,7 +72,7 @@
             right: 150px;
             width:7%;
         }
-        input[value="Get Started >"]
+        button[id="Get Started >"]
         {
             border: 0px;
             border-radius: 4px;
@@ -85,20 +86,29 @@
             padding-left: -5px;
             padding-right: 5px;
             width: 15%;
+            position: absolute;
+            top: 79.5%;
+            left: 58%;
+            z-index: 1;
         }
         input[name="Email"]
         {
-            background: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.5);
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-top: 15px;
             box-sizing: border-box;
+            color: white;
             font-size: 15px;
             margin-right: 4px;
             margin-top: 13px;
             padding: 17px;
             padding-right: 1px;
             width: 30%;
+            position: absolute;
+            top: 80%;
+            left: 27%;
+            z-index: 1;
         }
         ::placeholder 
         {
@@ -128,21 +138,19 @@
     <h4 class="textfour">
         Ready to watch? Enter your email to create or restart your membership.
     </h4>
-    
-    <form action = "{{ url_for ('index') }}" method="post"></form>
-        <p class="centered">
+    <p>
+        
+    </p>
+    <form action = "{{ url_for ('index') }}" method="post">
+        <p>
             <input autocomplete="off" autofocus name="Email" placeholder="Email address" type="email">
-            <input type="submit" value="Get Started >">
+            <button id="Get Started >">Get Started ></button>
         </p>
-        <p class="centered">
-            
-        </p>
+    </form>
         <p class="signin">
             <a href="{{ url_for ('login') }}">
                 <button id="login">Sign In</button>
             </a>
         </p>
-        
-    </form>
 
 {% endblock %}
