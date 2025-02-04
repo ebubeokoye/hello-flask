@@ -8,12 +8,16 @@
             background-size:cover;
             text-align: center;
         }
+        *
+        {
+            box-sizing: border-box;
+        }
         .signintext
         {
             color: white;
             font-size: 35px;
             margin-left: -215px;
-            margin-top: 147px;
+            margin-top: 5%;
             /* height:1000px;
             position: absolute;
             top: 115px;
@@ -26,8 +30,9 @@
             font-size: 17px;
             font-weight: 1px;
             opacity: 0.6;
-            /* margin-top: 10px;
-            position: absolute;
+            row-gap: 5px;
+            
+            /* position: absolute;
             top: 414px;
             left: 49%;
             z-index: 2;  */
@@ -78,12 +83,12 @@
         {
             background: rgba(0,0,0,0.2);
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 2px;
             box-sizing: border-box;
             color: white;
             padding: 19px;
-            width: 25%;
-            /* margin-top: 100px; */
+            width: 69%;
+            margin-top: -12px;
             /* position: absolute;
             top:3%;
             left: 37.5%;
@@ -97,10 +102,10 @@
             border-radius: 4px;
             box-sizing: border-box;
             color: white;
+            margin-top: -3px;
             padding: 19px;
-            width: 25%;
-            /* margin-top: 1px;
-            position: absolute;
+            width: 69%;
+            /* position: absolute;
             top:52%;
             left: 37.5%;
             z-index: 2; */
@@ -114,9 +119,10 @@
             box-sizing: border-box;
             font-size: 15px;
             font-weight: bold;
+            margin-top: -2px;
             padding: 11px;
-            width: 25%;
-            /* margin-top: 1px;
+            width: 69%;
+            /* margin-bottom: 5px;
             position: absolute;
             top:65%;
             left: 37.5%;
@@ -131,25 +137,31 @@
             color: white;
             font-size: 15px;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: -1px;
             padding: 12px;
-            width: 25%;
+            width: 69%;
             /* margin-top: 40px;
             position: absolute;
             top:75%;
             left: 37.5%;
             z-index: 2;  */
         }
-        .long-black-rectangle
+        .flex-container
         {
             background-color: black;
-            height:80%;
-            width: 35%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height:445px;
+            width: 36.5%;
             opacity: 0.7;
-            position: absolute;
+            /* position: absolute;
             text-align: center;
+            margin:auto; */
             margin-left: 410px;
-            margin-top: -100px;
+            margin-top: 90px;
 
             /* top: 100px;
             left: 33%; */
@@ -160,15 +172,16 @@
             background-color: black;
             width: 100%;
             height: 300px;
-            opacity: 1;
             position: absolute;
-            text-align: center;
-            margin-top: -45px;
-            /* margin-left: -500px; */
-            
-            /* top: 555px;
-            left: 0%; */
-            z-index: -1; 
+            border: 1px solid black;
+            box-sizing: border-box;
+            opacity: 1;
+            overflow-x: hidden;
+            /* margin-top: -45px;
+            margin-left: -500px;
+            top: 555px;
+            left: 0%;
+            z-index: -1;  */
         } 
         
         ::placeholder 
@@ -185,23 +198,24 @@
                 </textPath>
             </text>
     </svg> -->
-    <h1 class="signintext">Sign In</h1>
-    <div class="long-black-rectangle"></div>
-    <form action="{{ url_for ('login') }}" method="post">
-        <p>
-            <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
-        </p>
-        <p>
-            <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
-        </p>
-        <p>
-            <input id="1" type="submit" value="Sign In">
-        </p>
-        <div class="OR-text">OR</div>
-        <p>
-            <input id="2" type="submit" value="Use a Sign-In Code">
-        </p>
-        <div class="forgotPassword-text">Forgot password?</div>
+    <div class="flex-container">
+        <h1 class="signintext">Sign In</h1>
+        <form action="{{ url_for ('login') }}" method="post">
+            <p>
+                <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
+            </p>
+            <p>
+                <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
+            </p>
+            <p>
+                <input id="1" type="submit" value="Sign In">
+            </p>
+            <div class="OR-text">OR</div>
+            <p>
+                <input id="2" type="submit" value="Use a Sign-In Code">
+            </p>
+            <div class="forgotPassword-text">Forgot password?</div>
+    </div>
         <p>
             <input id="rememberMe" class="checkbox" name="rememberMe" type="checkbox" value="Remember me">
             <label for="rememberMe" class="rememberMe-text">Remember me</label>
