@@ -1,0 +1,289 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        h1
+        {
+            border-bottom: 5px solid white;
+            border-left-width: 0cm;
+            border-right-width: 0cm;
+            border-style:ridge;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            margin-top: -10px;
+            padding-top: 30px;
+            width: 100%;
+            height: 135px;
+            text-align: center;
+        }
+        .div-top
+        {
+            margin-top: -13px;
+            font-size: 15px;
+        }
+        .div-bottom
+        {
+            font-size: 20px;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+        i
+        {
+            margin-top: -10px;
+        }
+        img
+        {
+            float: right;
+            width: 390px;
+            height: 270px;
+            padding-right: 100px;
+            padding-top: 40px;
+        }
+        h2
+        {
+            font-size: 50px;
+            margin-top: 160px;
+            margin-left: 80px;
+        }
+        h3
+        {
+            margin-top: -25px;
+            margin-left: 80px;
+            line-height: 1.8;
+        }
+        img[id="second"]
+        {
+            float: left;
+            width: 525px;
+            height: 350px;
+            padding-left: 80px;
+            padding-top: 150px;
+        }
+        h4
+        {
+            font-size: 25px;
+            margin-top: 200px;
+            margin-right: 50px;
+        }
+        h5
+        {
+            font-size: 15px;
+            margin-top: -25px;
+            margin-left: -20px;
+            line-height: 1.8;
+        }
+        img[id="third"]
+        {
+            float: right;
+            width: 525px;
+            height: 350px;
+            padding-left: 80px;
+            padding-top: 80px;
+        }
+        h6
+        {
+            font-size: 20px;
+            margin-top: 260px;
+            margin-left: 80px;
+        }
+        .our-story
+        {
+            font-size: 15px;
+            margin-top: 10px;
+            margin-left: 80px;
+            line-height: 1.8;
+        }
+        .header-eight
+        {
+            font-size: 30px;
+            margin-top: 120px;
+            text-align: center;
+        }
+        .flex-3in1
+        {
+            background-color: blue;
+            width:130px;
+            height: 200px;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: row;
+            z-index: 1;
+        }
+        .flex-each
+        {
+            background-color: red;
+            width:130px;
+            height: 200px;
+            /* padding-right: 30px; */
+            display: flex;
+            flex-direction: row;
+            /* z-index: 2; */
+        }
+        .first-img-in3
+        {
+            /* float: left; */
+            /* display: flex;
+            flex-direction: row;
+            justify-content: center; */
+            background-color: whitesmoke;
+            border: 5px solid whitesmoke;
+            /* box-sizing: border-box; */
+            margin-left: 80px;
+            margin-top: 50px;
+            width: 130px;
+            height: 200px;
+            padding-top: 0px;
+            padding-bottom: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .second-img-in3
+        {
+            /* float: left; */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: whitesmoke;
+            border: 5px solid whitesmoke;
+            /* box-sizing: border-box; */
+            margin-left: 70px;
+            margin-top: 50px;
+            width: 130px;
+            height: 200px;
+            padding-top: 0px;
+            padding-bottom: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .third-img-in3
+        {
+            /* float: left; */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: whitesmoke;
+            border: 1px solid whitesmoke;
+            /* box-sizing: border-box; */
+            margin-left: 30px;
+            margin-top: 50px;
+            width: 130px;
+            height: 200px;
+            padding-top: 0px;
+            padding-bottom: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .first-img-in3.text
+        {
+            margin-top: 100px;
+        }
+        .badge-one
+        {
+            float: left;
+            margin-left: 165px;
+            margin-top: 100px;
+            width: 75px;
+            height: 100px;
+        }
+        .badge-two
+        {
+            float: left;
+            margin-left: -30px;
+            margin-top: 100px;
+            width: 75px;
+            height: 100px;
+        }
+        .badge-three
+        {
+            float: left;
+            margin-left: -30px;
+            margin-top: 100px;
+            width: 75px;
+            height: 100px;
+        }
+        .badge-four
+        {
+            float: left;
+            margin-left: 240px;
+            margin-top: -3px;
+            width: 75px;
+            height: 100px;
+        }
+        .badge-five
+        {
+            float: left;
+            margin-left: -30px;
+            margin-top: -3px;
+            width: 75px;
+            height: 100px;
+        }
+    </style>
+    <h1>
+        <i class="material-icons" style="font-size: 10px">cloud</i> <div class="div-top">English <br> <div class="div-bottom">Hubspot</div> </div>
+        <div class="div-top">subscribe <br> <div class="div-bottom">Mtn</div> </div>
+        <div class="div-top">Alert <br> <div class="div-bottom">Message</div> </div>
+        <div class="div-top">Contract <br> <div class="div-bottom">hello</div> </div>
+        
+    </h1>
+    <p>
+        <img src="{{url_for ('static', filename='hubspot-about-us.jpg') }}" alt="group pix">
+        <h2>About Us</h2>
+        <h3>HubSpot’s company and culture are a lot like our product. They’re <br>
+        crafted, not cobbled, for a delightful experience. </h3>
+    </p>
+    
+    <p>
+        <img src="{{url_for ('static', filename='hubspot-our-mission.jpg') }}" id="second">
+        <h4>Our Mission: Helping Millions of <br>
+            Organizations Grow Better</h4>
+        <h5>We believe not just in growing bigger, but in growing better. <br>
+            And growing better means aligning the success of your own business <br>
+            with the success of your customers. Win-win!</h5>
+    </p>
+    <p>
+        <img src="{{url_for ('static', filename='hubspot-our-story.jpg') }}" id="third">
+        <h6>Our Story</h6>
+        <div class="our-story">In 2004, fellow MIT graduate students Brian Halligan and Dharmesh <br>
+            Shah noticed a major shift in the way people shop and purchase <br>
+            products. Buyers didn’t want to be interrupted by ads, they wanted <br>
+            helpful information. In 2006, they founded HubSpot to help <br>
+            companies use that shift to grow better with inbound marketing.
+            <p>
+                Along the way, HubSpot expanded beyond marketing into a crafted, <br>
+                not cobbled suite of products that create the frictionless customer <br>
+                experience that buyers expect today. Expertly led by CEO Yamini <br>
+                Rangan, HubSpot uses its customer platform built on an AI-powered <br>
+                Smart CRM to help millions of scaling organizations grow better.
+            </p>
+        </div>
+    </p>
+    <div class="header-eight">HubSpot By the Numbers</div>
+    <div class="flex-3in1" style="z-index: 1;">
+        <div class="flex-each" style="z-index: 2;">
+            <img src="{{url_for ('static', filename='hubspot-offices.svg') }}" class="first-img-in3" style="z-index: 3;">
+        </div>
+        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 1;">14 Global Offices</p>
+        <div class="flex-each" style="z-index: -2; margin-left:40px">
+            <img src="{{url_for ('static', filename='hubspot-employees.svg') }}" class="second-img-in3" style="z-index: -1;">
+        </div>
+        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 1;">8,000+ Employees</p>
+        <div class="flex-each" style="z-index: -3; margin-left:40px">
+            <img src="{{url_for ('static', filename='hubspot-customers.svg') }}" class="third-img-in3" style="z-index: -2;">
+        </div>
+        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 4;"></p>
+        
+    </div>
+    
+    <!-- <div>
+        <img src="{{url_for ('static', filename='badge-best-results.png') }}" class="badge-one">
+        <img src="{{url_for ('static', filename='badge-easiest-admin.png') }}" class="badge-two">
+        <img src="{{url_for ('static', filename='badge-best-relationships.png') }}" class="badge-three"> 
+    </div>
+    <div style="clear:left"></div>
+    <div>
+        <img src="{{url_for ('static', filename='badge-best-usability.png') }}" class="badge-four">
+        <img src="{{url_for ('static', filename='bagde-fastest-implementation.png') }}" class="badge-five">
+    </div> -->
+{% endblock %}
