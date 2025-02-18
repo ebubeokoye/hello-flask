@@ -1,0 +1,225 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        body
+        {
+            background-image: url('static/netflixBackground.jpg');
+            background-size:cover;
+            text-align: center;
+        }
+        *
+        {
+            box-sizing: border-box;
+        }
+        .signintext
+        {
+            color: white;
+            font-size: 35px;
+            margin-left: -215px;
+            margin-top: 5%;
+            /* height:1000px;
+            position: absolute;
+            top: 115px;
+            left: 37.5%;
+            z-index: 2; */
+        }
+        .OR-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            opacity: 0.6;
+            row-gap: 5px;
+            
+            /* position: absolute;
+            top: 414px;
+            left: 49%;
+            z-index: 2;  */
+        }
+        .forgotPassword-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            /* margin-top: 2px;
+            position: absolute;
+            top: 510px;
+            left: 45%;
+            z-index: 2; */
+        }
+        input[type="checkbox"]
+        {
+            border:1px white;
+            font-weight: 1px;
+            /* position: absolute;
+            top: 548px;
+            left: 37.5%;
+            transform: scale(1.5);
+            z-index: 2; */
+            /* zoom: 1.5; */
+        }
+        .rememberMe-text
+        {
+            color: white;
+            font-size: 17px;
+            font-weight: 1px;
+            margin-right: 185px;
+            /* position: absolute;
+            top: 548px;
+            left: 40%;
+            z-index: 2; */
+        }
+        .netflixtext
+        {
+            color: red;
+            font-weight: bold;
+            /* position: absolute;
+            top:-330px;
+            right: 220px;
+            text-align:right; */
+        }
+        input[type="email"]
+        {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            box-sizing: border-box;
+            color: white;
+            padding: 19px;
+            width: 69%;
+            margin-top: -12px;
+            /* position: absolute;
+            top:3%;
+            left: 37.5%;
+            z-index: 2;  */
+            
+        }
+        input[type="password"]
+        {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: white;
+            margin-top: -3px;
+            padding: 19px;
+            width: 69%;
+            /* position: absolute;
+            top:52%;
+            left: 37.5%;
+            z-index: 2; */
+        }
+        input[value="Sign In"]
+        {
+            background-color: red;
+            color: white;
+            border: 1px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: -2px;
+            padding: 11px;
+            width: 69%;
+            /* margin-bottom: 5px;
+            position: absolute;
+            top:65%;
+            left: 37.5%;
+            z-index: 2; */
+        }
+        input[value="Use a Sign-In Code"]
+        {
+            background: rgba(255,255,255,0.2);
+            border: 1px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: -1px;
+            padding: 12px;
+            width: 69%;
+            /* margin-top: 40px;
+            position: absolute;
+            top:75%;
+            left: 37.5%;
+            z-index: 2;  */
+        }
+        .flex-container
+        {
+            background-color: black;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height:445px;
+            width: 36.5%;
+            opacity: 0.7;
+            /* position: absolute;
+            text-align: center;
+            margin:auto; */
+            margin-left: 410px;
+            margin-top: 90px;
+
+            /* top: 100px;
+            left: 33%; */
+            z-index: -1; 
+        }
+        .bottom-black-rectangle
+        {
+            background-color: black;
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            border: 1px solid black;
+            box-sizing: border-box;
+            opacity: 1;
+            overflow-x: hidden;
+            margin-top: -53px;
+            /* margin-left: -500px;
+            top: 555px;
+            left: 0%; */
+            z-index: -1;
+        } 
+        ::placeholder 
+        {
+            color: white;
+            opacity: 1;
+        }
+    </style>
+    <!-- <svg class="netflixtext" viewBox="0 0 500 500">
+        <path id="curve" d="M 100,250 A 200, 200 0 0,1 400,250" transform="translate(-150,-150)"/>
+            <text class="netflixtext" x="-200" y="-100" fill="red">
+                <textPath href="#curve" startOffset="100%">
+                    NETFLIX
+                </textPath>
+            </text>
+    </svg> -->
+    <div class="flex-container">
+        <h1 class="signintext">Sign In</h1>
+        <form action="{{ url_for ('login') }}" method="post">
+            <p>
+                <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
+            </p>
+            <p>
+                <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
+            </p>
+            <p>
+                <input id="1" type="submit" value="Sign In">
+            </p>
+            <div class="OR-text">OR</div>
+            <p>
+                <input id="2" type="submit" value="Use a Sign-In Code">
+            </p>
+            <div class="forgotPassword-text">Forgot password?</div>
+    </div>
+        <p>
+            <input id="rememberMe" class="checkbox" name="rememberMe" type="checkbox" value="Remember me">
+            <label for="rememberMe" class="rememberMe-text">Remember me</label>
+        </p>
+    </form>
+    <div class="bottom-black-rectangle"></div>
+    
+{% endblock %}

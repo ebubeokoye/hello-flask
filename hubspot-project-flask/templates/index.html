@@ -2,7 +2,89 @@
 
 {% block body %}
     <style>
-        h1
+        body 
+        {
+            font-family: "Lexend Deca", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            /* overflow-x: hidden; */
+        }
+        /* container for the toggle */
+        .fixed-chatbox-icon
+        {
+            position: fixed;
+            border: 0px;
+            border-radius: 30px;
+            background-color: gray;
+            font-size: 35px;
+            padding: 15px;
+            bottom: 20px;
+            right: 15px;
+            transition: 0.1s;
+        }
+        .fixed-chatbox-icon:hover
+        {
+            right: 11px;
+            bottom: 17px;
+            border-radius: 40px;
+            font-size: 45px;
+        }
+        .toggle-switch
+        {
+            position: relative;
+            display: inline-block;
+            width: 31px;
+            height: 14px;
+            margin-top: -9px;
+            margin-left: 40px;
+        }
+        /* hide default checkbox */
+        .toggle-switch input
+        {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        /* the track ie the longer circular slide*/
+        .slider-round
+        {
+            position: absolute;
+            cursor: pointer;
+            background-color: #ccc;
+            border: 1px solid black;
+            border-radius: 24px;
+            width: 100%;
+            height: 100%;
+            transition: background-color 0.3s;
+        }
+        /* the small circular slider */
+        .slider-round::before
+        {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            padding-top: 1px;
+            left: 2.5px;
+            bottom: 1px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        /* toggled state */
+        .toggle-switch
+        input:checked+.slider-round
+        {
+            background-color: #4caf50;
+        }
+        .toggle-switch
+        input:checked+.slider-round::before
+        {
+            transform: translateX(12px);
+        }
+        .top-div
         {
             border-bottom: 5px solid white;
             border-left-width: 0cm;
@@ -10,8 +92,6 @@
             border-style:ridge;
             box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
             margin-top: -10px;
             padding-top: 30px;
             width: 100%;
@@ -27,11 +107,62 @@
         {
             font-size: 20px;
             margin-top: 50px;
-            margin-right: 20px;
+            width: 100%;
+        }
+        .dropdown
+        {
+            position: relative;
+        }
+        .dropdown-content
+        {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding-left: 0;
+            border: 1px solid black;
+            margin-top: 29px;
+            margin-left: -270px;
+            width: 1500px;
+            height: 1000px;
+        }
+        .dropdown:hover .dropdown-content
+        {
+            display: flex;
         }
         i
         {
             margin-top: -10px;
+        }
+        .search-icon
+        {
+            display: inline;
+            position: relative;
+            font-size: 22px;
+            margin-left: 180px; 
+            margin-top: -10px;
+        }
+        .search-form
+        {
+            display:none;
+            position: absolute;
+            width: 1000px;
+            z-index: 1;
+            background: #f1f1f1;
+        }
+        .search-icon:hover .search-form
+        {
+            display: flex;
+            background-color: pink;
+        }
+        .start-free-button
+        {
+            width: 210px;
+            height: 40px;
+            margin-left: 330px;
+            margin-top: -30px;
+            background-color: orangered;
+            border: 0px;
+            border-radius: 5px;
         }
         img
         {
@@ -98,46 +229,38 @@
         .header-eight
         {
             font-size: 30px;
-            margin-top: 120px;
+            padding-top: 70px;
             text-align: center;
         }
         .flex-3in1
         {
-            background-color: blue;
-            width:130px;
-            height: 200px;
-            padding-right: 30px;
-            display: flex;
-            flex-direction: row;
-            z-index: 1;
+            background-color: whitesmoke;
+            width:100%;
+            height: 410px;
+            margin-top: 60px;
         }
         .flex-each
         {
-            background-color: red;
-            width:130px;
-            height: 200px;
+            background-color: white;
+            width:27.5%;
+            height: 250px;
+            margin-top: 50px;
+            margin-left: 80px;
             /* padding-right: 30px; */
             display: flex;
             flex-direction: row;
-            /* z-index: 2; */
+            justify-content: center;
         }
         .first-img-in3
         {
-            /* float: left; */
-            /* display: flex;
+            display: flex;
             flex-direction: row;
-            justify-content: center; */
-            background-color: whitesmoke;
-            border: 5px solid whitesmoke;
-            /* box-sizing: border-box; */
             margin-left: 80px;
-            margin-top: 50px;
+            margin-top: -50px;
             width: 130px;
             height: 200px;
-            padding-top: 0px;
             padding-bottom: 50px;
-            padding-left: 100px;
-            padding-right: 100px;
+            margin-top: -60px;
         }
         .second-img-in3
         {
@@ -171,7 +294,7 @@
             width: 130px;
             height: 200px;
             padding-top: 0px;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
             padding-left: 100px;
             padding-right: 100px;
         }
@@ -183,7 +306,7 @@
         {
             float: left;
             margin-left: 165px;
-            margin-top: 100px;
+            margin-top: 80px;
             width: 75px;
             height: 100px;
         }
@@ -191,7 +314,7 @@
         {
             float: left;
             margin-left: -30px;
-            margin-top: 100px;
+            margin-top: 80px;
             width: 75px;
             height: 100px;
         }
@@ -199,7 +322,7 @@
         {
             float: left;
             margin-left: -30px;
-            margin-top: 100px;
+            margin-top: 80px;
             width: 75px;
             height: 100px;
         }
@@ -219,12 +342,134 @@
             width: 75px;
             height: 100px;
         }
+        
+        #slideshow-background
+        {
+            overflow: hidden;
+            line-height: 1.5;
+            text-align: center;
+            width: 710px;
+            height: 300px;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            border-top: 15px solid green;
+            background-color: red;
+            margin-top: 140px;
+            margin-left: 270px;
+            
+        }
+        #the-total-width-for-2-slides
+        {
+            /* add animation to this div and make the div x2 of it's background div above*/
+            width: calc(710px * 2);
+            height: 300px;
+            background-color: blue;
+            animation: slide 10s ease;
+            animation-iteration-count: 4;
+            cursor: move;
+        /* }
+        .the-total-width-for-2-slides:hover
+        { */
+            
+        }
+
+        #float-box-for-text
+        {
+            float: left;
+            height: 300px;
+            width: 800px;
+            background-color: green;
+        }
+        #draggable
+        {
+            width:700px;
+            height: 300px;
+            border: 1px solid black;
+            background-color: blue;
+        }
+        @keyframes slide
+        {
+            20% {margin-left: 0px;}
+            40% {margin-left: calc(-728px * 1);}
+            60% {margin-left: calc(-728px * 2);}
+            80% {margin-left: calc(-728px * 3);}
+        }
+        .part-two-img-and-text-float
+        {
+            float: left;
+        }
+        .our-locations-div
+        {
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .cambridge-img
+        {
+            float: right;
+            width: 340px;
+            height: 340px;
+            margin-top: -90px;
+        }
+        .cambridge-text-header
+        {
+            font-size: 28px;
+            padding-top: 0px;
+        }
+        .cambridge-text-body
+        {
+            padding-top: -10px;
+        }
     </style>
-    <h1>
-        <i class="material-icons" style="font-size: 10px">cloud</i> <div class="div-top">English <br> <div class="div-bottom">Hubspot</div> </div>
-        <div class="div-top">subscribe <br> <div class="div-bottom">Mtn</div> </div>
-        <div class="div-top">Alert <br> <div class="div-bottom">Message</div> </div>
-        <div class="div-top">Contract <br> <div class="div-bottom">hello</div> </div>
+
+    <a href="{{ url_for ('login') }}"><i class="material-icons fixed-chatbox-icon">chat</i></a>
+    
+    <div class="top-div">
+        <div class="div-top" style="display: flex; flex-direction: row; margin-left: 85px; position: relative;">
+            <i class="material-icons" style="font-size: 20px">mic</i>
+            <span style="padding-left: 5px; margin-top: -10px; font-size: 15px;">English</span>
+            
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider-round"></span>
+            </label>
+            <span style="padding-left: 30px; margin-top: -10px; font-size: 15px;">High Contrast</span>
+            
+            <i class="material-icons" style="font-size: 15px; margin-left: 30px;  margin-top: -7px;">chat</i>
+            <span style="padding-left: 10px; margin-top: -10px; font-size: 15px;">Customer Support</span>
+
+            <i class="material-icons" style="font-size: 18px; margin-left: 30px;  margin-top: -10px;">person</i>
+            <span style="padding-left: 10px; margin-top: -10px; font-size: 15px;">Contact Sales</span>
+            <div class="search-icon"><i class="material-icons search-icon">search</i>
+                <div>
+                    <form class="search-form" action="search-page">
+                        <input" autofocus autocomplete="off" type="text" placeholder="Search.." name="search">
+                    </form>
+                </div>
+            </div>
+            <a href="{{ url_for ('login') }}" style="padding-left: 30px; margin-top: -10px; font-size: 15px;">Log in</a>
+            <a href="{{ url_for ('login') }}" style="padding-left: 30px; margin-top: -10px; font-size: 15px;">About</a>
+        </div>
+
+        <div class="div-bottom" style="margin-left: 85px; display: flex; flex-direction: row;">
+            <img src="{{url_for ('static', filename='hubspot-logo.svg') }}" style="width: 80px; height: 50px; margin-top: -50px;">  
+            <div class="dropdown">
+                <span style="font-size: 15px; margin-left: -30px;">Products</span>
+                <div class="dropdown-content">Hello world! wdwewldw;wd;wd'wqwj;qdw3eoo3p2e;'    l</div>
+            </div>
+            <div class="dropdown">
+                <span style="font-size: 15px; margin-left: 80px;">Solutions</span>
+                <div class="dropdown-content" style="margin-left: -290px;">whTEVE YOU have to saysdjdwwjd wdhecnqwidwoxxsx</div>
+            </div>
+            <span style="font-size: 15px; margin-left: 80px; margin-top:5px;">Pricing</span>
+            <div class="dropdown">
+                <span style="font-size: 15px; margin-left: 40px;">Resources</span>
+                <div class="dropdown-content" style="margin-left: -550px;">finally dswemed,acdcdddddddddddddddddddddddddddc</div>
+            </div>
+            <a href="{{ url_for ('login') }}">
+                <button class="start-free-button">Start free or get a demo</button>
+            </a>
+        </div>
+    </div>
         
     </h1>
     <p>
@@ -259,31 +504,347 @@
             </p>
         </div>
     </p>
-    <div class="header-eight">HubSpot By the Numbers</div>
-    <div class="flex-3in1" style="z-index: 1;">
-        <div class="flex-each" style="z-index: 2;">
-            <img src="{{url_for ('static', filename='hubspot-offices.svg') }}" class="first-img-in3" style="z-index: 3;">
+    
+    <div class="flex-3in1">
+        <div class="header-eight">HubSpot By the Numbers</div>
+        <div style="position: relative;" class="flex-each">
+            <img src="{{url_for ('static', filename='hubspot-offices.svg') }}" class="first-img-in3">
+            <span style="position: absolute; padding-top: 160px; font-size: 28px;">14 Global Offices</span>
         </div>
-        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 1;">14 Global Offices</p>
-        <div class="flex-each" style="z-index: -2; margin-left:40px">
-            <img src="{{url_for ('static', filename='hubspot-employees.svg') }}" class="second-img-in3" style="z-index: -1;">
+        
+        <!-- <div class="flex-each" style="z-index: -2; margin-left:-25px;">
+            <img src="{{url_for ('static', filename='hubspot-employees.svg') }}" class="second-img-in3" style="z-index: -2;">
         </div>
-        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 1;">8,000+ Employees</p>
-        <div class="flex-each" style="z-index: -3; margin-left:40px">
-            <img src="{{url_for ('static', filename='hubspot-customers.svg') }}" class="third-img-in3" style="z-index: -2;">
+        <span style="margin-top: 100px; margin-right: 150px; z-index: 1; white-space: nowrap;">8,000+ Employees</span>
+        <div class="flex-each" style="z-index: -3; margin-left:5px;">
+            <img src="{{url_for ('static', filename='hubspot-customers.svg') }}" class="third-img-in3" style="z-index: -1;">
         </div>
-        <p style="margin-top: 100px; margin-right: 150px;" style="z-index: 4;"></p>
+        <span style="margin-top: 110px; margin-right: 150px; z-index: 1; width:200px; white-space: nowrap;">238,000+ Customers</span> -->
         
     </div>
     
-    <!-- <div>
-        <img src="{{url_for ('static', filename='badge-best-results.png') }}" class="badge-one">
-        <img src="{{url_for ('static', filename='badge-easiest-admin.png') }}" class="badge-two">
-        <img src="{{url_for ('static', filename='badge-best-relationships.png') }}" class="badge-three"> 
+    <div style="background-color: whitesmoke; height: 460px;">
+        <div>
+            <img src="{{url_for ('static', filename='badge-best-results.png') }}" class="badge-one">
+            <img src="{{url_for ('static', filename='badge-easiest-admin.png') }}" class="badge-two">
+            <img src="{{url_for ('static', filename='badge-best-relationships.png') }}" class="badge-three"> 
+        </div>
+        <div style="clear:left;"></div>
+        <div>
+            <img src="{{url_for ('static', filename='badge-best-usability.png') }}" class="badge-four">
+            <img src="{{url_for ('static', filename='bagde-fastest-implementation.png') }}" class="badge-five">
+            <span style="margin-top: -300px; margin-left: 150px; font-size: 30px;">Voted #1 in 571 Reports</span>
+        </div>
     </div>
-    <div style="clear:left"></div>
-    <div>
-        <img src="{{url_for ('static', filename='badge-best-usability.png') }}" class="badge-four">
-        <img src="{{url_for ('static', filename='bagde-fastest-implementation.png') }}" class="badge-five">
-    </div> -->
+    <div style="clear: left;"></div>
+
+    <div style="height: 830px;">
+        <div style= "padding-top: 70px; text-align: center; font-size: 40px;">What Our Customers Say</div>
+        <div style="margin-top: 15px; text-align: center; margin-left: -50px; font-size: 20px;">See how HubSpot customers are growing their businesses and getting incredible results.</div>
+        <div id="slideshow-background">
+            <div id="the-total-width-for-2-slides" draggable="true">
+                <div id="float-box-for-text" draggable="true">
+                    <h8 id="draggable">"The biggest benefit of Hubspot is that all your data lives in it, <br>
+                        you see the same customer information as the sales team and <br>
+                        vice versa. It gives us a new level o confidence."
+                    </h8>
+                </div>
+                <div id= "float-box-for-text" draggable="true">
+                    <h9 id="draggable">
+                        "HubSpot matched out expectations for several reasons. We <br>
+                        loved it's flexibility, ease of operations and pace of scalability. It <br>
+                        was intuitive to pick up and adopt, and have a very user-friendly <br>
+                        interface that was easy to adapt."
+                    </h9>
+                </div>
+                <div id="the-animation"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background-color: whitesmoke; height: 830px;">
+        <div style="padding-top: 70px; text-align: center; font-size: 40px;">
+            Growing Better Together
+        </div>
+        <div id="slideshow-background">
+            <div id="the-total-width-for-2-slides" style="background-color: pink;">
+                <div id="float-box-for-text" style="background-color: yellow; float: left;">
+                    <img src="{{url_for ('static', filename='hubspot-diversity.png') }}" class="part-two-img-and-text-float">
+                    <p>HubSpot Diversity, Inclusion and Belonging</p>
+                    <p>Explore our latest Diversity, Inclusion and Belonging</p>
+                </div>
+                <div id="float-box-for-text" style="background-color: brown;">
+                    <img src="{{url_for ('static', filename='hubspot-careers.png') }}" class="part-two-img-and-text-float">
+                    <p>Careers at HubSpot</p>
+                    <p>Explore our latest Diversity, Inclusion and Belonging</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 1200px;">
+        <div>
+            <div class="our-locations-div">
+                <img src="{{url_for ('static', filename='hubspot-cambridge-stamp.png') }}" class="cambridge-img"> 
+                <p class="cambridge-text-header"> Connect at One of Our Locations </p>
+                <p class="cambridge-text-body"> Global Headquarters <br>
+                    
+                    Boston, MA, USA <br>
+                    
+                    Phone: <br>
+                    +1 888 HUBSPOT (English) <br>
+                    +1 888 482 7768 (English) <br>
+                    +1 857 829 5064 (Spanish) <br>
+                    
+                    Contact us </p>
+            </div>
+        </div>
+    
+        <div style="margin-top: 200px;">
+            <div style="float: left; background-color: white; width: 100%;">
+                <img src="{{url_for ('static', filename='hubspot-berlin-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-bogota-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-dublin-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-ghent-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+            </div>
+            <div style="clear: left;"></div>
+            <div style="float: left; width: 100%;">
+                <p style="float: left; padding-left: 90px;">Berlin, Germany <br>
+                    Phone: <br>
+                    +49 30 208486000 (German) <br>
+                    +49 30 217998000 (English)</p>
+                <p style="float: left; padding-left: 93px;">Bogotá, Colombia <br>
+                    Latin America Headquarters <br>
+                    Opened: 2018 <br>
+                    Phone: <br>
+                    +57 601 6284800 (Spanish) <br>
+                    +57 601 3714700 (English)</p>
+                <p style="float: left; padding-left: 100px;"> Dublin, Ireland <br>
+                    Europe Headquarters <br>
+                    Opened: 2013 <br>
+                    Phone: <br>
+                    +353 1 518 7500 (English)</p>
+                <p style="float: left; padding-left: 107px;">
+                    Ghent, Belgium <br>
+                    Phone: <br>
+                    +32 9 320 0370 (French) <br>
+                    +32 9 320 0350 (English)
+                </p>
+            </div>
+            <div style="clear: left;"></div>
+    
+            <div style="float: left; width: 100%; padding-top: 20px;">
+                <img src="{{url_for ('static', filename='hubspot-netherlands-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-paris-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-ontario-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-sanfransisco-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+            </div>
+            <div style="clear: left;"></div>
+            <div style="float: left; width: 100%;">
+                <p style="float: left; padding-left: 90px;">The Netherlands <br>
+                    Phone: <br>
+                    +31 20 200 3299 (English)</p>
+                <p style="float: left; padding-left: 107px;">Paris, France <br>
+                    Opened: 2016 <br>
+                    Phone: <br>
+                    +33 1 72 73 05 00 (French) <br>
+                    +33 1 72 73 06 44 (English)</p>
+                <p style="float: left; padding-left: 100px;">Toronto, Ontario, Canada <br>
+                    Opened: 2021 <br>
+                    Phone: <br>
+                    +1 888 482 7768 (English)</p>
+                <p style="float: left; padding-left: 109px;">San Francisco, California, USA <br>
+                    Opened: 2020 <br>
+                    Phone: <br>
+                    +1 888 482 7768 (English) <br>
+                    +1 857 829 5064 (Spanish)</p>
+            </div>
+            <div style="clear: left;"></div>
+            <div style="float: left; width: 100%; padding-top: 20px;">
+                <img src="{{url_for ('static', filename='hubspot-singapore-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-sydney-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-tokyo-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+                <img src="{{url_for ('static', filename='hubspot-uk-stamp.png') }}" style="float:left; width: 90px; height: 90px; padding-left: 90px;">
+            </div>
+            <div style="clear:left;"></div>
+            <div style="float: left; width: 100%;">
+                <p style="float: left; padding-left: 90px;">Singapore <br>
+                    Asia-Pacific Headquarters <br>
+                    Opened: 2015 <br>
+                    Phone: <br>
+                    +65 6955 6000 (English)</p>
+                <p style="float: left; padding-left: 107px;">Sydney, Australia <br>
+                    Opened: 2014 <br>
+                    Phone: <br>
+                    +61 2 9164 8000 (English)</p>
+                <p style="float: left; padding-left: 100px;">Tokyo, Japan <br>
+                    Opened: 2016 <br>
+                    Phone: <br>
+                    +81 3 5656 5900 (Japanese)</p>
+                <p style="float: left; padding-left: 109px;">United Kingdom <br>
+                    Phone: <br>
+                    +44 20 7324 3700 (English)</p>
+            </div>
+            <div style="clear: left;"></div>
+        </div>
+    </div>
+
+    <div style="margin-top: 100px; background-color: whitesmoke; height: 400px;">
+        <p style="text-align: center; font-size: 40px; padding-top: 60px;">Resources</p>
+        <div style="display: flex; flex-direction: row; background-color: whitesmoke; width: 100%;">
+            <img src="{{url_for ('static', filename='hubspot-2023-growth-analytics.svg') }}" style="display: flex;
+                flex-direction: row; border: 1px solid white; background-color: white;
+                width:90px; height: 70px; padding-left: 127px; padding-right: 127px; padding-top: 10px; 
+                padding-bottom: 100px; margin-left: 100px; text-align: center;">
+            <img src="{{url_for ('static', filename='hubspot-coins.svg') }}" style="display: flex;
+                flex-direction: row; border: 1px solid white; background-color: white;
+                width:120px; height: 80px; padding-left: 111px; padding-right: 111px; padding-top: 10px; 
+                padding-bottom: 90px; margin-left: 20px; text-align: center;">
+            <img src="{{url_for ('static', filename='hubspot-o-logo.svg') }}" style="display: flex;
+                flex-direction: row; border: 1px solid white; background-color: white;
+                width:90px; height: 70px; padding-left: 127px; padding-right: 127px; padding-top: 10px; 
+                padding-bottom: 100px; margin-left: 20px; text-align: center;">
+        </div>
+            
+        <div style="display: flex; flex-direction: row;">
+            <p style="margin-top: -90px; margin-left: 150px; line-height: 1.2;">Read the latest announcements from <br>
+                HubSpot’s communications team.
+            </p>
+            <p style="margin-top: -70px; margin-left: 50px; padding-left: 100px; line-height: 1.2;">Read the latest announcements</p>
+            <p style="margin-top: -70px; margin-left: 50px; padding-left: 100px; line-height: 1.2;">Check out the newest features and <br>
+                improvements to HubSpot's products.</p>
+        </div>
+    </div>
+    <footer style="background-color: black; height: 1500px;">
+        <div style="font-size: 40px; color: white; text-align: center; padding-top: 65px;">HubSpot Products</div>
+        <p style="color: white;">Each product in HubSpot’s customer platform is connected to the same underlying Smart CRM database. Although our products are powerful <br>
+            on their own, the real magic happens when you use them together.
+        </p>
+
+        <div style="display: flex; flex-direction: row; margin-top:30px;">
+            <div style="width:340px; height: 200px; margin-left: 100px; background-color: white;
+                     border: 1px solid black;">
+                <p>Marketing Hub <br>
+                    Marketing automation software to help you <br>
+                    generate leads and automate marketing that drives growth.
+                </p>
+            </div>
+            <div style="width:340px; height: 200px; margin-left:25px; background-color: white;
+                    border: 1px solid black;">
+                <p>Sales Hub <br>
+                    Powerful sales software to help teams close <br>
+                    more deals, deepen relationships, and manage <br>
+                    their pipeline more effectively.
+                </p>
+            </div>
+            <div style="width:340px; height: 200px; margin-left: 25px; background-color: white;
+                    border: 1px solid black">
+                <p>Service Hub <br>
+                    Customer service management software to <br>
+                    help you connect with customers, exceed <br>
+                    expectations, and turn them into promoters <br>
+                    who grow your business.
+                </p>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row; margin-top: 25px;">
+            <div style="width:340px; height: 200px; margin-left: 100px; background-color: white;
+                     border: 1px solid black;">
+                <p>Content Hub
+                    AI-powered content marketing software that <br>
+                    helps marketers create and manage content <br>
+                    that fuels the entire customer journey.
+                </p>
+            </div>
+            <div style="width:340px; height: 200px; margin-left: 25px; background-color: white;
+                    border: 1px solid black;">
+                <p>Operations Hub <br>
+                    Operations software that lets you easily sync <br>
+                    and curate customer data, and automate business processes.
+                </p>
+            </div>
+            <div style="width:340px; height: 200px; margin-left: 25px; background-color: white;
+                    border: 1px solid black;">
+                <p>Commerce Hub
+                    B2B commerce software designed to help you 
+                    streamline your opportunity-to-revenue <br>
+                    process so you get paid faster, increase <br>
+                    revenue, and save time.
+                </p>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; margin-top: 100px;">
+            <div style="margin-left: 100px; color: white; font-size: 14px;">
+                <p>Popular Features</p>
+                <p style="margin-top: 10px;">All Products and Features</p>
+                <p>Free Meeting Scheduler App</p>
+                <p>Breeze AI Tools</p>
+                <p>Email Tracking Software</p>
+                <P>AI Content Writer</P>
+                <P>AI Website Generator</P>
+                <P>Email Marketing Software</P>
+                <p>Lead Management Software</p>
+                <p>AI Email Writer</p>
+            </div>
+            <div style="margin-left: 50px; color: white; border-right: 1px solid white; padding-right: 50px; font-size: 14px;">
+                <p style="padding-top: 32px;">Free Website Builder</p>
+                <p>Sales Email Templates</p>
+                <p>Free Online Form Builder</p>
+                <p>Free Chatbot Builder</p>
+                <p>Free Live Chat Software</p>
+                <p>Marketing Analytics</p>
+                <p>Free Landing Page Builder</p>
+                <p>Free Web Hosting</p>
+            </div>
+            <div style="padding-left: 50px; color: white; font-size: 14px;">
+                <P>Free Tools</P>
+                <P style="margin-top: 10px;">See All Free Business Tools</P>
+                <P>AI Search Grader</P>
+                <P>Clip Creator</P>
+                <P>Website Grader</P>
+                <P>Make My Persona</P>
+                <P>Email Signature Generator</P>
+                <P>Brand Kit Generator</P>
+                <P>Blog Ideas Generator</P>
+                <P>Invoice Generator</P>
+                <P>Free Business Templates</P>
+                <P>Guide Creator</P>
+                <P>Software Comparisons</P>
+                <P>Library</P>
+                <P>Template Marketplace</P>
+                <P>Campaign Assistant</P>
+                <P>Landing Page Creator</P>
+            </div>
+            <div style="padding-left: 50px; color: white; font-size: 14px;">
+                <p>Company</p>
+                <p style="margin-top: 10px;">About Us</p>
+                <p>Careers</p>
+                <p>Management Team</p>
+                <p>Board of Directors</p>
+                <p>Investor Relations</p>
+                <p>Blog</p>
+                <p>Contact Us</p>
+            </div>
+            <div style="padding-left: 70px; color: white; font-size: 14px;">
+                <p>Customers</p>
+                <p style="margin-top: 10px;">Customer Support</p>
+                <p>Join a Local User Group</p>
+                <p style="margin-top: 50px;"></p>
+                <p>Partners</p>
+                <p>All Partner Program</p>
+                <p>Solutions Partner Program</p>
+                <p>App Partner Program</p>
+                <p>HubSpot for Startups</p>
+                <p>Affiliate Program</p>
+                <p></p>
+            </div>
+        </div>
+        <div>
+            <div style="border-top: 1px solid white; display: flex; margin-top: 50px;"></div>
+            <div style="width: 450px; height: 50px; background-color: black; margin-top:-20px; margin-left: 400px;"></div>
+        </div>
+        
+    </footer>
+
 {% endblock %}
