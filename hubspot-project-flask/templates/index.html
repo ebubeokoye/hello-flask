@@ -37,7 +37,7 @@
             width: 31px;
             height: 14px;
             margin-top: -9px;
-            margin-left: 40px;
+            margin-left: 15px;
         }
         /* hide default checkbox */
         .toggle-switch input
@@ -51,12 +51,13 @@
         {
             position: absolute;
             cursor: pointer;
-            background-color: #ccc;
+            background-color: white;
             border: 1px solid black;
             border-radius: 24px;
             width: 100%;
             height: 100%;
-            transition: background-color 0.3s;
+            transition: background-color 0.5s, transform 0.3s;
+            transition-timing-function: ease-in;
         }
         /* the small circular slider */
         .slider-round::before
@@ -64,25 +65,63 @@
             content: "";
             position: absolute;
             height: 10px;
-            width: 10px;
+            width: 11px;
             padding-top: 1px;
             left: 2.5px;
             bottom: 1px;
-            background-color: white;
+            background-image: linear-gradient(to right, white 0%, white 50%, black 50%, black 100%);
             border: 1px solid black;
-            border-radius: 50%;
-            transition: transform 0.3s;
+            border-radius: 90%;
+            /* transition is used to 1) change the values of properties 2) give duration for a transform to happen*/
+            transition: background-image 0.3s ease-in 0.2s, transform 0.5s;
         }
         /* toggled state */
         .toggle-switch
         input:checked+.slider-round
         {
-            background-color: #4caf50;
+            transition-delay: 0.3s;
+            background-color: #4004b7;
         }
         .toggle-switch
         input:checked+.slider-round::before
         {
-            transform: translateX(12px);
+            /* transform is used */
+            transform: translateX(12px) rotate(360deg);
+            background-image: linear-gradient(to right, white 0%, white 50%, white 50%, white 100%);
+        }
+        .start-free-button
+        {
+            width: 210px;
+            height: 40px;
+            margin-left: 800px;
+            margin-top: 50px;
+            background-color: orangered;
+            color: white;
+            border: 0px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .toggle-switch
+        input:checked+.slider-round+a>.start-free-button
+        {
+            background-color: #4004b7;
+        }
+        /* there are 2 classes i'll be using tho create the arrow- 1) arrow 2) down */
+        .arrow
+        {
+            border: solid black;
+            border-width: 0 1.9px 1.9px 0;
+            height: 0.9px;
+            width:1px;
+            display: inline-block;
+            padding: 3px;
+            margin-left: 10px;
+            margin-top: -7px;
+        }
+        .down
+        {
+            transform: rotate(45deg);
+            -webkit-transform:rotate(45deg);
         }
         .top-div
         {
@@ -113,6 +152,29 @@
         {
             position: relative;
         }
+        .dropdown:hover
+        {
+            text-decoration: underline;
+            text-decoration-color: blue;
+        }
+        /* this is the dropdown menu for language the 'English' text in top-div*/
+        .language-dropdown-content
+        {
+            display: none;
+            position:absolute;
+            width: 110px;
+            height: 100px;
+            left: 0px;
+            top: 15px;
+            background-color: white;
+            border: 1px solid blue;
+            border-radius: 4px;
+        }
+        .dropdown:hover .language-dropdown-content
+        {
+            display: block;
+        }
+        /* this is the dropdown menu for the texts in bottom-div */
         .dropdown-content
         {
             display: none;
@@ -153,16 +215,6 @@
         {
             display: flex;
             background-color: pink;
-        }
-        .start-free-button
-        {
-            width: 210px;
-            height: 40px;
-            margin-left: 330px;
-            margin-top: -30px;
-            background-color: orangered;
-            border: 0px;
-            border-radius: 5px;
         }
         img
         {
@@ -231,15 +283,18 @@
             font-size: 30px;
             padding-top: 70px;
             text-align: center;
+            background-color: whitesmoke;
+            margin-top: 60px;
         }
         .flex-3in1
         {
             background-color: whitesmoke;
             width:100%;
             height: 410px;
-            margin-top: 60px;
+            display: flex;
+            flex-direction: row;
         }
-        .flex-each
+        .flex-img1
         {
             background-color: white;
             width:27.5%;
@@ -251,6 +306,17 @@
             flex-direction: row;
             justify-content: center;
         }
+        .flex-img2-3
+        {
+            background-color: white;
+            width:27.5%;
+            height: 250px;
+            margin-top: 50px;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
         .first-img-in3
         {
             display: flex;
@@ -258,45 +324,25 @@
             margin-left: 80px;
             margin-top: -50px;
             width: 130px;
-            height: 200px;
-            padding-bottom: 50px;
-            margin-top: -60px;
+            height: 200px; 
         }
         .second-img-in3
         {
-            /* float: left; */
             display: flex;
             flex-direction: row;
-            justify-content: center;
-            background-color: whitesmoke;
-            border: 5px solid whitesmoke;
-            /* box-sizing: border-box; */
-            margin-left: 70px;
-            margin-top: 50px;
+            margin-left: 80px;
+            margin-top: -25px;
             width: 130px;
-            height: 200px;
-            padding-top: 0px;
-            padding-bottom: 50px;
-            padding-left: 100px;
-            padding-right: 100px;
+            height: 130px;
         }
         .third-img-in3
         {
-            /* float: left; */
             display: flex;
             flex-direction: row;
-            justify-content: center;
-            background-color: whitesmoke;
-            border: 1px solid whitesmoke;
-            /* box-sizing: border-box; */
-            margin-left: 30px;
-            margin-top: 50px;
+            margin-left: 80px;
+            margin-top: -35px;
             width: 130px;
-            height: 200px;
-            padding-top: 0px;
-            padding-bottom: 60px;
-            padding-left: 100px;
-            padding-right: 100px;
+            height: 150px; 
         }
         .first-img-in3.text
         {
@@ -365,14 +411,12 @@
             height: 300px;
             background-color: blue;
             animation: slide 10s ease;
-            animation-iteration-count: 4;
             cursor: move;
         /* }
         .the-total-width-for-2-slides:hover
         { */
             
         }
-
         #float-box-for-text
         {
             float: left;
@@ -380,6 +424,10 @@
             width: 800px;
             background-color: green;
         }
+        /* #float-box-for-text:active
+        {
+            animation: slide 10s ease;
+        } */
         #draggable
         {
             width:700px;
@@ -425,12 +473,22 @@
     
     <div class="top-div">
         <div class="div-top" style="display: flex; flex-direction: row; margin-left: 85px; position: relative;">
-            <i class="material-icons" style="font-size: 20px">mic</i>
-            <span style="padding-left: 5px; margin-top: -10px; font-size: 15px;">English</span>
+            <div class="dropdown" style="width: 90px; display: flex;">
+                <i class="material-icons" style="font-size: 20px">mic</i>
+                <span style="padding-left: 5px; margin-top: -10px; font-size: 15px; width:15px">English</span>
+                <i class="arrow down dropdown" style="margin-left: 38px;"></i>
+                <div class="language-dropdown-content">
+                    <p>espanol</p> <br>
+                    <p>English</p>
+                </div>
+            </div>
             
             <label class="toggle-switch">
                 <input type="checkbox">
                 <span class="slider-round"></span>
+                <a href="{{ url_for ('login') }}">
+                    <button class="start-free-button">Start free or get a demo</button>
+                </a>
             </label>
             <span style="padding-left: 30px; margin-top: -10px; font-size: 15px;">High Contrast</span>
             
@@ -454,20 +512,24 @@
             <img src="{{url_for ('static', filename='hubspot-logo.svg') }}" style="width: 80px; height: 50px; margin-top: -50px;">  
             <div class="dropdown">
                 <span style="font-size: 15px; margin-left: -30px;">Products</span>
+                <i class="arrow down"></i>
                 <div class="dropdown-content">Hello world! wdwewldw;wd;wd'wqwj;qdw3eoo3p2e;'    l</div>
             </div>
-            <div class="dropdown">
-                <span style="font-size: 15px; margin-left: 80px;">Solutions</span>
+            
+
+            <div class="dropdown" style="margin-left: 60px;">
+                <span style="font-size: 15px; padding-left: 0px;">Solutions</span>
+                <i class="arrow down"></i>
                 <div class="dropdown-content" style="margin-left: -290px;">whTEVE YOU have to saysdjdwwjd wdhecnqwidwoxxsx</div>
             </div>
-            <span style="font-size: 15px; margin-left: 80px; margin-top:5px;">Pricing</span>
-            <div class="dropdown">
-                <span style="font-size: 15px; margin-left: 40px;">Resources</span>
+
+            <span style="font-size: 15px; margin-left: 60px; margin-top:5px;">Pricing</span>
+
+            <div class="dropdown" style="margin-left: 60px;">
+                <span style="font-size: 15px; padding-left: 0px;">Resources</span>
+                <i class="arrow down"></i>
                 <div class="dropdown-content" style="margin-left: -550px;">finally dswemed,acdcdddddddddddddddddddddddddddc</div>
             </div>
-            <a href="{{ url_for ('login') }}">
-                <button class="start-free-button">Start free or get a demo</button>
-            </a>
         </div>
     </div>
         
@@ -505,22 +567,21 @@
         </div>
     </p>
     
+    <div class="header-eight">HubSpot By the Numbers</div>
     <div class="flex-3in1">
-        <div class="header-eight">HubSpot By the Numbers</div>
-        <div style="position: relative;" class="flex-each">
+        <div style="position: relative;" class="flex-img1">
             <img src="{{url_for ('static', filename='hubspot-offices.svg') }}" class="first-img-in3">
             <span style="position: absolute; padding-top: 160px; font-size: 28px;">14 Global Offices</span>
         </div>
-        
-        <!-- <div class="flex-each" style="z-index: -2; margin-left:-25px;">
-            <img src="{{url_for ('static', filename='hubspot-employees.svg') }}" class="second-img-in3" style="z-index: -2;">
+        <div style="position: relative;" class="flex-img2-3">
+            <img src="{{url_for ('static', filename='hubspot-employees.svg') }}" class="second-img-in3">
+            <span style="position: absolute; padding-top: 165px; font-size: 28px;">8,000+ Employees</span>
         </div>
-        <span style="margin-top: 100px; margin-right: 150px; z-index: 1; white-space: nowrap;">8,000+ Employees</span>
-        <div class="flex-each" style="z-index: -3; margin-left:5px;">
-            <img src="{{url_for ('static', filename='hubspot-customers.svg') }}" class="third-img-in3" style="z-index: -1;">
-        </div>
-        <span style="margin-top: 110px; margin-right: 150px; z-index: 1; width:200px; white-space: nowrap;">238,000+ Customers</span> -->
         
+        <div style="position: relative;" class="flex-img2-3">
+            <img src="{{url_for ('static', filename='hubspot-customers.svg') }}" class="third-img-in3">
+            <span style="position: absolute; padding-top: 165px; font-size: 28px;">238,000+ Customers</span>
+        </div>
     </div>
     
     <div style="background-color: whitesmoke; height: 460px;">
