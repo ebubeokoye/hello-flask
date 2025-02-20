@@ -2,14 +2,6 @@
 
 {% block body %}
     <style>
-        body 
-        {
-            font-family: "Lexend Deca", serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            /* overflow-x: hidden; */
-        }
         /* container for the toggle */
         .fixed-chatbox-icon
         {
@@ -207,14 +199,17 @@
         {
             display:none;
             position: absolute;
-            width: 1000px;
-            z-index: 1;
             background: #f1f1f1;
         }
         .search-icon:hover .search-form
         {
             display: flex;
             background-color: pink;
+        }
+        input[name="search"]
+        {
+            width: 400px;
+            height:50px;
         }
         img
         {
@@ -229,12 +224,14 @@
             font-size: 50px;
             margin-top: 160px;
             margin-left: 80px;
+            font-family: "Lexend Deca", serif;
         }
-        h3
+        .about-us
         {
             margin-top: -25px;
             margin-left: 80px;
             line-height: 1.8;
+            font-family: "Lexend Deca", serif;
         }
         img[id="second"]
         {
@@ -244,16 +241,16 @@
             padding-left: 80px;
             padding-top: 150px;
         }
-        h4
+        h3
         {
             font-size: 25px;
             margin-top: 200px;
             margin-right: 50px;
         }
-        h5
+        .our-mission
         {
             font-size: 15px;
-            margin-top: -25px;
+            /* margin-top: -25px; */
             margin-left: -20px;
             line-height: 1.8;
         }
@@ -265,7 +262,7 @@
             padding-left: 80px;
             padding-top: 80px;
         }
-        h6
+        h4
         {
             font-size: 20px;
             margin-top: 260px;
@@ -497,10 +494,11 @@
 
             <i class="material-icons" style="font-size: 18px; margin-left: 30px;  margin-top: -10px;">person</i>
             <span style="padding-left: 10px; margin-top: -10px; font-size: 15px;">Contact Sales</span>
-            <div class="search-icon"><i class="material-icons search-icon">search</i>
+            <div class="search-icon">
+                <i class="material-icons search-icon">search</i>
                 <div>
                     <form class="search-form" action="search-page">
-                        <input" autofocus autocomplete="off" type="text" placeholder="Search.." name="search">
+                        <input autofocus autocomplete="off" type="text" placeholder="Search.." name="search">
                     </form>
                 </div>
             </div>
@@ -537,21 +535,21 @@
     <p>
         <img src="{{url_for ('static', filename='hubspot-about-us.jpg') }}" alt="group pix">
         <h2>About Us</h2>
-        <h3>HubSpot’s company and culture are a lot like our product. They’re <br>
-        crafted, not cobbled, for a delightful experience. </h3>
+        <p class="about-us">HubSpot’s company and culture are a lot like our product. They’re <br>
+        crafted, not cobbled, for a delightful experience. </p>
     </p>
     
     <p>
         <img src="{{url_for ('static', filename='hubspot-our-mission.jpg') }}" id="second">
-        <h4>Our Mission: Helping Millions of <br>
-            Organizations Grow Better</h4>
-        <h5>We believe not just in growing bigger, but in growing better. <br>
+        <h3>Our Mission: Helping Millions of <br>
+            Organizations Grow Better</h3>
+        <p class="our-mission">We believe not just in growing bigger, but in growing better. <br>
             And growing better means aligning the success of your own business <br>
-            with the success of your customers. Win-win!</h5>
+            with the success of your customers. Win-win!</p>
     </p>
     <p>
         <img src="{{url_for ('static', filename='hubspot-our-story.jpg') }}" id="third">
-        <h6>Our Story</h6>
+        <h4>Our Story</h4>
         <div class="our-story">In 2004, fellow MIT graduate students Brian Halligan and Dharmesh <br>
             Shah noticed a major shift in the way people shop and purchase <br>
             products. Buyers didn’t want to be interrupted by ads, they wanted <br>

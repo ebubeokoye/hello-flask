@@ -5,8 +5,10 @@
         body
         {
             background-image: url('static/netflixBackground.jpg');
-            background-size:cover;
+            background-repeat: no-repeat;
+            background-size:1300px 555px;
             text-align: center;
+            overflow-x: hidden;
         }
         *
         {
@@ -18,11 +20,6 @@
             font-size: 35px;
             margin-left: -215px;
             margin-top: 5%;
-            /* height:1000px;
-            position: absolute;
-            top: 115px;
-            left: 37.5%;
-            z-index: 2; */
         }
         .OR-text
         {
@@ -31,53 +28,33 @@
             font-weight: 1px;
             opacity: 0.6;
             row-gap: 5px;
-            
-            /* position: absolute;
-            top: 414px;
-            left: 49%;
-            z-index: 2;  */
         }
         .forgotPassword-text
         {
             color: white;
             font-size: 17px;
             font-weight: 1px;
-            /* margin-top: 2px;
-            position: absolute;
-            top: 510px;
-            left: 45%;
-            z-index: 2; */
         }
         input[type="checkbox"]
         {
-            border:1px white;
-            font-weight: 1px;
-            /* position: absolute;
-            top: 548px;
-            left: 37.5%;
-            transform: scale(1.5);
-            z-index: 2; */
-            /* zoom: 1.5; */
+            background-color: blue;
+            border:1px black;
+            width: 20px;
+            height: 40px;
+            margin-top: -12px;
+            display: flex;
         }
         .rememberMe-text
         {
             color: white;
             font-size: 17px;
             font-weight: 1px;
-            margin-right: 185px;
-            /* position: absolute;
-            top: 548px;
-            left: 40%;
-            z-index: 2; */
+            
         }
         .netflixtext
         {
             color: red;
             font-weight: bold;
-            /* position: absolute;
-            top:-330px;
-            right: 220px;
-            text-align:right; */
         }
         input[type="email"]
         {
@@ -89,10 +66,6 @@
             padding: 19px;
             width: 69%;
             margin-top: -12px;
-            /* position: absolute;
-            top:3%;
-            left: 37.5%;
-            z-index: 2;  */
             
         }
         input[type="password"]
@@ -105,10 +78,6 @@
             margin-top: -3px;
             padding: 19px;
             width: 69%;
-            /* position: absolute;
-            top:52%;
-            left: 37.5%;
-            z-index: 2; */
         }
         input[value="Sign In"]
         {
@@ -122,11 +91,6 @@
             margin-top: -2px;
             padding: 11px;
             width: 69%;
-            /* margin-bottom: 5px;
-            position: absolute;
-            top:65%;
-            left: 37.5%;
-            z-index: 2; */
         }
         input[value="Use a Sign-In Code"]
         {
@@ -140,49 +104,24 @@
             margin-top: -1px;
             padding: 12px;
             width: 69%;
-            /* margin-top: 40px;
-            position: absolute;
-            top:75%;
-            left: 37.5%;
-            z-index: 2;  */
         }
         .flex-container
         {
+            /* position: relative; */
             background-color: black;
             border: 1px solid black;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height:445px;
+            height:460px;
             width: 36.5%;
             opacity: 0.7;
-            /* position: absolute;
-            text-align: center;
-            margin:auto; */
+            margin:auto; 
             margin-left: 410px;
-            margin-top: 90px;
-
-            /* top: 100px;
-            left: 33%; */
-            z-index: -1; 
+            margin-top: 90px; 
+            bottom:0px;
         }
-        .bottom-black-rectangle
-        {
-            background-color: black;
-            width: 100%;
-            height: 300px;
-            position: absolute;
-            border: 1px solid black;
-            box-sizing: border-box;
-            opacity: 1;
-            overflow-x: hidden;
-            margin-top: -53px;
-            /* margin-left: -500px;
-            top: 555px;
-            left: 0%; */
-            z-index: -1;
-        } 
         ::placeholder 
         {
             color: white;
@@ -197,29 +136,36 @@
                 </textPath>
             </text>
     </svg> -->
-    <div class="flex-container">
-        <h1 class="signintext">Sign In</h1>
-        <form action="{{ url_for ('login') }}" method="post">
-            <p>
-                <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
-            </p>
-            <p>
-                <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
-            </p>
-            <p>
-                <input id="1" type="submit" value="Sign In">
-            </p>
-            <div class="OR-text">OR</div>
-            <p>
-                <input id="2" type="submit" value="Use a Sign-In Code">
-            </p>
-            <div class="forgotPassword-text">Forgot password?</div>
-    </div>
-        <p>
-            <input id="rememberMe" class="checkbox" name="rememberMe" type="checkbox" value="Remember me">
-            <label for="rememberMe" class="rememberMe-text">Remember me</label>
-        </p>
-    </form>
-    <div class="bottom-black-rectangle"></div>
+    <main>
+        <div style="float: left; margin-left: 130px; margin-top: -90px;">
+            <img src="{{url_for ('static', filename='netflix.svg') }}" style="width: 150px; height: 100px; margin-top: 0;">
+        </div>
+        <div class="flex-container">
+            <h1 class="signintext">Sign In</h1>
+            <form action="{{ url_for ('login') }}" method="post">
+                <p>
+                    <input autocomplete="off" autofocus name="email" placeholder="Email or mobile number" type="email">
+                </p>
+                <p>
+                    <input autocomplete="off" autofocus name="password" placeholder="Password" type="password">
+                </p>
+                <p>
+                    <input id="1" type="submit" value="Sign In">
+                </p>
+                <div class="OR-text">OR</div>
+                <p>
+                    <input id="2" type="submit" value="Use a Sign-In Code">
+                </p>
+                <div class="forgotPassword-text">Forgot password?</div>
+            </form>
+        </div>
+    </main>
     
+    <footer style="height: 500px; background-color: black; margin-left: -10px; margin-right: -10px;">
+        <div style="display: flex; margin-left: 500px;">
+            <input id="rememberMe" class="checkbox" name="rememberMe" type="checkbox" value="Remember me">
+            <div style="color: white; display: flex;">Remember me</div>
+        </div>
+    </footer>
+        
 {% endblock %}
