@@ -1,3 +1,11 @@
+from flask import Flask, redirect, render_template, request
+
+app =Flask (__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
 from flask import Flask, redirect, render_template, request, jsonify
 
 app =Flask (__name__, template_folder="templates")
@@ -20,6 +28,7 @@ def  process():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 @app.route("/login")
 def login():

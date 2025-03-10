@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        .modal
+        {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 100px;
+            width: 25%;
+            height: 100px;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content
+        {
+            background-color: #fefefe;
+            color: red;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close
+        {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus 
+        {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <div>
+        <input type="text" id="input">
+        <button onclick="sendData()">Send Data</button>
+        <div id="output"></div>
+    </div>
+
+    <!-- <div>
+        <p>This is a paragraph</p>
+        <p>This is another paragraph</p>
+        <button>click me to hide paragraphs</button>
+    </div> -->
+
+    <div>
+        <button id="myBtn" onclick="createModal()"></button>
+        <div class="modal" id="myModal">
+            <div>
+                <span class="close" id="close" onclick="closeModal()">&times;</span>
+                <div>Click the "x" to close it</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+
+
+        function sendData() {
+            var value = document.getElementById('input').value;
+            //Eg.1 using ajax: ajax enables web applications to send and receive data with a server in the backend,
+            // without interruption of constant web page reloadng & moving to a new page. The interaction happens quickly,
+            // eg when you click submit button for an input, you wont need to attach a route to the submit
+            $.ajax({
+                url: '/process',
+                type: 'POST',
+                contentType: 'application/json',
+                // send data/the input to python. the data is called value
+                data: JSON.stringify({'value': value}),
+                // retrieve the processed data from python
+                success: function(response) {
+                    document.getElementById('output').innerHTML = response.result;
+                },
+                error:
+                function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        // Eg.2 using jquery a javascript library/framework for quick javascript actions in user interface,
+        // it recognizes the users actions and appropriately modifies the web page's components w/o interacting with backend/server,
+        // jquery utilizes ajax for the majority of its functionalities
+        $(document).ready(function(){
+            $("button").click(function() {
+                $("p").hide();
+            });
+        });
+    </script>
+{% endblock %}

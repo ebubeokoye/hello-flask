@@ -2,6 +2,11 @@
 
 {% block body %}
     <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0.5px;
+        }
         /* container for the toggle */
         .fixed-chatbox-icon
         {
@@ -28,7 +33,7 @@
             display: inline-block;
             width: 31px;
             height: 14px;
-            margin-top: -9px;
+            margin-top: 3px;
             margin-left: 15px;
         }
         /* hide default checkbox */
@@ -37,6 +42,7 @@
             opacity: 0;
             width: 0;
             height: 0;
+            display: none;
         }
         /* the track ie the longer circular slide*/
         .slider-round
@@ -85,8 +91,8 @@
         {
             width: 210px;
             height: 40px;
-            margin-left: 800px;
-            margin-top: 50px;
+            margin-left: 770px;
+            margin-top: 40px;
             background-color: orangered;
             color: white;
             border: 0px;
@@ -98,12 +104,55 @@
         {
             background-color: #4004b7;
         }
+        /* modal background */
+        .modal
+        {
+            display: none;
+            position: fixed;
+            border: 3px solid yellow;
+            border-radius: 15px;
+            box-shadow: inset;
+            z-index: 2;
+            top: 150px;
+            right: 120px;
+            width: 80%;
+            height: 70%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content
+        {
+            background-color: #fefefe;
+            border: 20px solid yellow;
+            color: red;
+            margin-top: 60px;
+            margin-left: 40px;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 180px;
+        }
+        .close
+        {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus 
+        {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
         /* there are 2 classes i'll be using tho create the arrow- 1) arrow 2) down */
         .arrow
         {
-            border: solid black;
-            border-width: 0 1.9px 1.9px 0;
-            height: 0.9px;
+            border: solid;
+            border-color: black;
+            border-width: 0 1.9px 2px 0;
+            height: 1px;
             width:1px;
             display: inline-block;
             padding: 3px;
@@ -128,11 +177,13 @@
             width: 100%;
             height: 135px;
             text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
         .div-top
         {
             margin-top: -13px;
-            font-size: 15px;
+            font-size: 10px;
         }
         .div-bottom
         {
@@ -143,11 +194,25 @@
         .dropdown
         {
             position: relative;
+            text-decoration: none;
+            color:#454545;
         }
-        .dropdown:hover
+        .dropdown:hover i
+        {
+            color: blue;
+            border-color: blue;
+        }
+        .dropdown:hover a
         {
             text-decoration: underline;
             text-decoration-color: blue;
+            color: blue;
+        }
+        .dropdown:hover span
+        {
+            text-decoration: underline;
+            text-decoration-color: blue;
+            color: blue;
         }
         /* this is the dropdown menu for language the 'English' text in top-div*/
         .language-dropdown-content
@@ -161,6 +226,9 @@
             background-color: white;
             border: 1px solid blue;
             border-radius: 4px;
+            margin-top: 20px;
+            transition: border 1s;
+            transition-delay: 3s;
         }
         .dropdown:hover .language-dropdown-content
         {
@@ -189,11 +257,12 @@
         }
         .search-icon
         {
+            color: blue;
             display: inline;
             position: relative;
             font-size: 22px;
-            margin-left: 180px; 
-            margin-top: -10px;
+            margin-left: 170px; 
+            margin-top: 2px;
         }
         .search-form
         {
@@ -211,27 +280,66 @@
             width: 400px;
             height:50px;
         }
+        .login-link
+        {
+            padding-left: 30px;
+            margin-top: 6px;
+            font-size: 12px;
+            text-decoration: none;
+            color:#454545;
+        }
+        .login-link:hover
+        {
+            text-decoration: underline;
+            text-decoration-color: blue;
+            color: blue;
+        }
+        .about-dropdown-content
+        {
+            display: none;
+            position:absolute;
+            width: 110px;
+            height: 100px;
+            left: 0px;
+            top: 15px;
+            background-color: white;
+            border: 1px solid blue;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .dropdown:hover .about-dropdown-content
+        {
+            display: block;
+        }
+        .hubspot-logo
+        {
+            background-image: url('static/hubspot-logo.svg');
+            background-repeat: no-repeat;
+            margin-top: -18px;
+            height: 100px;
+            width: 100px;
+        }
         img
         {
             float: right;
             width: 390px;
             height: 270px;
-            padding-right: 100px;
+            padding-right: 70px;
             padding-top: 40px;
         }
         h2
         {
             font-size: 50px;
-            margin-top: 160px;
+            margin-top: 120px;
             margin-left: 80px;
-            font-family: "Lexend Deca", serif;
+            /* font-family: Arial, Helvetica, sans-serif; */
         }
         .about-us
         {
             margin-top: -25px;
             margin-left: 80px;
             line-height: 1.8;
-            font-family: "Lexend Deca", serif;
+            font-size: 18px;
         }
         img[id="second"]
         {
@@ -466,34 +574,58 @@
         }
     </style>
 
+    
     <a href="{{ url_for ('login') }}"><i class="material-icons fixed-chatbox-icon">chat</i></a>
     
     <div class="top-div">
         <div class="div-top" style="display: flex; flex-direction: row; margin-left: 85px; position: relative;">
             <div class="dropdown" style="width: 90px; display: flex;">
-                <i class="material-icons" style="font-size: 20px">mic</i>
-                <span style="padding-left: 5px; margin-top: -10px; font-size: 15px; width:15px">English</span>
-                <i class="arrow down dropdown" style="margin-left: 38px;"></i>
-                <div class="language-dropdown-content">
+                <i class="material-icons" style="font-size: 20px; margin-top: 2px;">mic</i>
+                <span style="padding-left: 5px; margin-top: 4px; font-size: 12px; width:15px;">English</span>
+                <i class="arrow down" style="margin-left: 38px; margin-top: 4px;"></i>
+                <div class="language-dropdown-content" style="color: #454545;">
                     <p>espanol</p> <br>
                     <p>English</p>
                 </div>
             </div>
             
-            <label class="toggle-switch">
-                <input type="checkbox">
-                <span class="slider-round"></span>
+            <label class="toggle-switch" id="toggleSwitch">
+                <input type="checkbox" id="myCheckbox">
+                <span class="slider-round" id="myBtn" onclick="createModal()"></span>
                 <a href="{{ url_for ('login') }}">
                     <button class="start-free-button">Start free or get a demo</button>
                 </a>
             </label>
-            <span style="padding-left: 30px; margin-top: -10px; font-size: 15px;">High Contrast</span>
-            
-            <i class="material-icons" style="font-size: 15px; margin-left: 30px;  margin-top: -7px;">chat</i>
-            <span style="padding-left: 10px; margin-top: -10px; font-size: 15px;">Customer Support</span>
+            <div class="modal" id="myModal">
+                <div class="modal-content">
+                    <span class="close" id="close" onclick="licancelModal()">&times;</span>
+                    <div style="font-size: 50px; font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">You are about to Open for today?</div>
+                    <div style="margin-top: 20px; margin-left: -30px;">
+                        <a href="{{ url_for ('login') }}" onclick="liconfirmModal()" style="margin-left: -30px; font-size: 20px;">Confirm</a>
+                    </div>
+                    <input type="button" onclick="licancelModal()" style="margin-left: 130px; margin-top: -30px; font-size: 20px; vertical-align: middle;" value="cancel">
+                </div>
+            </div>
 
-            <i class="material-icons" style="font-size: 18px; margin-left: 30px;  margin-top: -10px;">person</i>
-            <span style="padding-left: 10px; margin-top: -10px; font-size: 15px;">Contact Sales</span>
+            <div class="modal" id="logoutModal">
+                <div class="modal-content">
+                    <span class="close" id="close" onclick="locancelModal()">&times;</span>
+                    <div style="font-size: 50px; font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">Do you want to close for today?</div>
+                    <div style="margin-top: 20px; margin-left: -30px;">
+                        <a href="{{ url_for ('login') }}" onclick="loconfirmModal()" style="margin-left: -30px; font-size: 20px;">Confirm</a>
+                    </div>
+                    <input type="button" onclick="licancelModal()" style="margin-left: 130px; margin-top: -30px; font-size: 20px; vertical-align: middle;" value="cancel">
+                </div>
+            </div>
+            
+
+            <span style="padding-left: 30px; margin-top: 4px; font-size: 12px; color: #454545;">High Contrast</span>
+            
+            <i class="material-icons" style="font-size: 15px; margin-left: 35px;  margin-top: 5px;">chat</i>
+            <span style="padding-left: 10px; margin-top: 5px; font-size: 12px; color: #454545;">Customer Support</span>
+
+            <i class="material-icons" style="font-size: 18px; margin-left: 32px;  margin-top:2px;">person</i>
+            <span style="padding-left: 8px; margin-top: 5px; font-size: 12px; color: #454545;">Contact Sales</span>
             <div class="search-icon">
                 <i class="material-icons search-icon">search</i>
                 <div>
@@ -502,29 +634,36 @@
                     </form>
                 </div>
             </div>
-            <a href="{{ url_for ('login') }}" style="padding-left: 30px; margin-top: -10px; font-size: 15px;">Log in</a>
-            <a href="{{ url_for ('login') }}" style="padding-left: 30px; margin-top: -10px; font-size: 15px;">About</a>
+            <a href="{{ url_for ('login') }}" class="login-link">Log in</a>
+            <div style="margin-top: 6px;" class="dropdown">
+                <a href="{{ url_for ('login') }}" style="padding-left: 30px; font-size: 12px;" class="dropdown">About</a>
+                <i class="arrow down dropdown" style="margin-bottom: 2px; margin-left:5px;"></i>
+                <div class="about-dropdown-content" style="color: #454545;">
+                    <p>espanol</p> <br>
+                    <p>English</p>
+                </div>
+            </div>
         </div>
 
         <div class="div-bottom" style="margin-left: 85px; display: flex; flex-direction: row;">
-            <img src="{{url_for ('static', filename='hubspot-logo.svg') }}" style="width: 80px; height: 50px; margin-top: -50px;">  
-            <div class="dropdown">
-                <span style="font-size: 15px; margin-left: -30px;">Products</span>
-                <i class="arrow down"></i>
+            <span class="hubspot-logo"></span> 
+            <div class="dropdown" style="margin-left: 40px; margin-top: -14px;">
+                <span style="padding-left: 10px; font-size: 16px;">Products</span>
+                <i class="arrow down" style="margin-bottom: 2px; margin-left: 5px;"></i>
                 <div class="dropdown-content">Hello world! wdwewldw;wd;wd'wqwj;qdw3eoo3p2e;'    l</div>
             </div>
             
 
-            <div class="dropdown" style="margin-left: 60px;">
-                <span style="font-size: 15px; padding-left: 0px;">Solutions</span>
-                <i class="arrow down"></i>
+            <div class="dropdown" style="margin-left: 40px; margin-top: -14px;">
+                <span style="margin-left: -5px; font-size: 16px;">Solutions</span>
+                <i class="arrow down" style="margin-bottom: 2px; margin-left: 5px;"></i>
                 <div class="dropdown-content" style="margin-left: -290px;">whTEVE YOU have to saysdjdwwjd wdhecnqwidwoxxsx</div>
             </div>
 
-            <span style="font-size: 15px; margin-left: 60px; margin-top:5px;">Pricing</span>
+            <span style="margin-left: 40px; font-size: 16px; margin-top: -10px; color: #454545;">Pricing</span>
 
-            <div class="dropdown" style="margin-left: 60px;">
-                <span style="font-size: 15px; padding-left: 0px;">Resources</span>
+            <div class="dropdown" style="margin-left: 40px; margin-top: -14px;">
+                <span style="margin-left: -5px; font-size: 16px;">Resources</span>
                 <i class="arrow down"></i>
                 <div class="dropdown-content" style="margin-left: -550px;">finally dswemed,acdcdddddddddddddddddddddddddddc</div>
             </div>
@@ -903,7 +1042,47 @@
             <div style="border-top: 1px solid white; display: flex; margin-top: 50px;"></div>
             <div style="width: 450px; height: 50px; background-color: black; margin-top:-20px; margin-left: 400px;"></div>
         </div>
-        
+      
     </footer>
+
+    <script>
+        var notChecked = document.getElementById('myCheckbox').disabled = true;
+        function createModal() {
+            if (notChecked) {
+                document.getElementById('myModal').style.display = "block";
+            } else {
+                document.getElementById('logoutModal').style.display = "block";
+                // document.getElementById('myCheckbox').disabled = true;
+            }
+            // if user is closed and wants to open for the day
+            
+            
+
+            // document.getElementById('myModal').style.display = "block";
+            // document.getElementById('myCheckbox').disabled = true;
+            $('body').append('<div id = "cover" style="position: absolute; top: 0; length: 0; width: 100%; height: 100%; z-index:1; opacity: 0.4; filter: alpha(opacity= 50)"></div>');
+        }
+        // if the user clicked confirm for login
+        function liconfirmModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById('myCheckbox').checked = true;
+        }
+        // if the user clicked cancel for login
+        function licancelModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById('myCheckbox').checked = false;
+        }
+
+        // if the user clicked confirm for logout
+        function loconfirmModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById('myCheckbox').checked = false;
+        }
+        // if the user clicked cancel for logout
+        function locancelModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById('myCheckbox').checked = true;
+        }
+    </script> 
 
 {% endblock %}
