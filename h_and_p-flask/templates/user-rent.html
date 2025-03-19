@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h2>Rent apartment</h2>
+    <div>---</div>
+    <div>---</div>
+    <div style="height: 100px;">
+        <div style="display: inline; margin-left: 30px;">
+            <div class="user-rent-pg1-filterby-redirect">
+                Filter by Location > </div>
+            </div>
+            <!-- it takes the user to a new page -->
+            <div class="user-rent-pg1-filterby-redirect2">
+                Filter by Price & house type > </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 1000px; background-color: whitesmoke; padding-top: 5px; margin-top: 10px;">
+        <div class="rent-pg1-samples-container1">
+            <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container1-img">
+            <div class="rent-pg1-samples-container1-facilities">
+                water, good road connection, <br>
+                security, fully furn...                
+            </div>
+            <div class="rent-pg1-samples-container1-agent">Femi</div>
+        </div>
+        <div class="rent-pg1-samples-container2">
+            <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container2-img">
+            <div class="rent-pg1-samples-container2-facilities">
+                water, good road connection, <br>
+                security, fully furn...
+            </div>
+            <div class="rent-pg1-samples-container2-agent">Femi</div>
+        </div>
+        <div class="rent-pg1-samples-container2">
+            <img src="{{url_for ('static', filename = 'land-icon.jpg') }}" class="rent-pg1-samples-container2-img">
+            <div class="rent-pg1-samples-container2-facilities">
+                water, good road connection, <br>
+                security, fully furn...
+            </div>
+            <div class="rent-pg1-samples-container2-agent">Femi</div>
+        </div>
+    </div>
+
+    <div class="homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="homepage" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="buyland" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="rent" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="houseitems" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="register-as.html" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+        
+{% endblock %}

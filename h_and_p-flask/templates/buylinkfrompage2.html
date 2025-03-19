@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="section-one-buy">
+        <div class="section-one-subdiv1-buy">
+            <div class="header-h-and-P-text">Housing & Properties</div>
+            <div class="header-Buy-text">Buy</div>
+            <div class="header-Sell-text">Sell</div>
+            <div class="header-Stories-text">Stories</div>
+            <div class="header-FAQs-text">FAQs</div>
+            <div class="header-Resources-text">Resources</div>
+            <a href="{{url_for ('signin') }}" class="header-Signin-link">
+                <button type="submit" class="header-Signin-button">Sign in</button>
+            </a>
+
+            <a href="{{ url_for ('registeras') }}">
+                <button type="submit" class="header-CreateAccount-text">Create account</button>
+            </a>
+                        
+        </div>
+    </div>
+
+    <div class="section-two-buy">
+        <div class="section-two-buy-sub1">
+            <h1 class="section-two-text">A step to greatness <br> made easy-</h1>
+            <p class="section-two-text">Housing and Properties helps thousands of <br>
+            Lagosians achieve their dream of owning a land, <br>
+            apartment rental and shop variety of household items with ease.</p>
+        </div>
+        <div class="section-two-buy-sub2">
+            <div style="display: flex; position: relative;">
+                <div style="width: 220px; height: 180px; background-color: white; margin-top: 40px; margin-left: 20px;"></div>
+                <div style="width: 220px; height: 180px; background-color: white; margin-top: 20px; margin-left: 20px;"></div>
+            </div>
+            <div style="display: flex; position: absolute;">
+                <div style="width: 200px; height: 120px; background-color: white; margin-top: 20px; margin-left: 20px;"></div>
+            </div>
+        </div>
+
+        <div id="myContainer"></div>
+    </div>
+
+{% endblock %}

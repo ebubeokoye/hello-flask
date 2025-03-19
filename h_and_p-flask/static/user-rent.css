@@ -1,0 +1,74 @@
+.user-rent-pg1-filterby-redirect
+{
+    width: 250px;
+    height: 20px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+}
+.user-rent-pg1-filterby-redirect2
+{
+    width: 250px;
+    height: 20px;
+    margin-top: 20px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+}
+
+.rent-pg1-samples-container1
+{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: 90px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: white;
+}
+.rent-pg1-samples-container1-img
+{
+    width: 60px;
+    height: 40px;
+    margin-left: 200px;
+    margin-top: 5px;
+}
+.rent-pg1-samples-container1-facilities
+{
+    background-color: pink;
+    margin-left: 120px;
+}
+.rent-pg1-samples-container1-agent
+{
+    margin-left: 120px;
+}
+
+.rent-pg1-samples-container2
+{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: 90px;
+    margin-top: 20px;
+    background-color: white;
+}
+.rent-pg1-samples-container2-img
+{
+    width: 60px;
+    height: 40px;
+    margin-left: 200px;
+    margin-top: 5px;
+}
+.rent-pg1-samples-container2-facilities
+{
+    margin-left: 120px;
+}
+.rent-pg1-samples-container2-agent
+{
+    margin-left: 120px;
+}
+

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="section-one">
+        <div class="section-one-sub1">
+            <div class="header-h-and-P">Housing & Properties</div>
+            <a href="{{ url_for ('buylinkfrompage2') }}" class="header-Buy">Buy</a>
+            <div class="header-Sell">Sell</div>
+            <div class="header-Stories">Stories</div>
+            <div class="header-FAQs">FAQs</div>
+            <div class="header-Resources">Resources
+                <!-- dropdown below come up when user hovers on resources above,
+                jquery was used to achieve this -->
+                <div class="resources-dropdown">
+                    <div style="display: flex; margin-top: 10px; margin-left: 10px;">
+                        <div class="box-one-in-resources-dropdown"></div>
+                        <div class="other-boxes-in-resources-dropdown"></div>
+                    </div>
+                    <div style="display: flex; margin-top: 10px; margin-left: 10px;">
+                        <div class="box-one-in-resources-dropdown"></div>
+                        <div class="other-boxes-in-resources-dropdown"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <a href="signin" class="header-Signin">Sign in</a>
+            <a href="registeras" class="header-CreateAccount">Create free account</a>
+            <div style="position: static;"></div>
+        </div>
+    </div>
+    
+    <div class="section-two">
+        <div class="section-two-sub1">
+            <div style="display: block;">
+                <h1>Loved By Our Customers</h1>
+                <p>Be a land owner. Investing in property is gold. <br> 
+                Buy, keep, build or buy a completely built home. </p>
+            </div>
+            <img src="{{ url_for ('static', filename='happy-african-family.jpg') }}" class="happy-family-img">
+            <div class="orange-rectangle"></div>
+        </div>
+        <div class="section-two-sub2">
+            <img src="{{ url_for ('static', filename='delivery-agent.jpg')}}" class="delivery-agent-img">
+            <div style="display: block;">
+                <h1>Set up your home and Office</h1>
+                <h3>make your house your home</h3>
+                <p>Shop brand new and fairly house items, appliances, gadgets, tools<br>
+                stress-free without breaking the bank. Delivered to your doorstep.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-three">
+        <button id="slider-button"></button>
+        <div class="section-three-slidebackground">
+            <div class="section-three-lagos-towns">
+                <div class="section-three-ikeja" id="slider"> Ikeja </div>
+                <div class="section-three-the-rest"> Lagos island </div>
+                <div class="section-three-the-rest"> Amuwo Odofin </div>
+                <div class="section-three-the-rest"> Ikorodu </div>
+                <div class="section-three-the-rest"> Apapa </div>
+                <div class="section-three-the-rest"> Surulere </div>
+                <div class="section-three-the-rest"> Shomolu </div>
+                <div class="section-three-the-rest"> and so on </div>
+            </div>
+        </div>
+        <div style="display: block;">
+            <h1>Relocate to and within <br> lagos with ease </h1>
+            <h4>Get an apartment of your taste without lifting a leg.</h4>
+        </div>
+    </div>
+
+    <script>
+        // document.getElementById("slider-button").addEventListener("click", myCounter);
+
+        // myCounter function gets called only once by saying add = myCounter(). so therefore the return value
+        // of function() of myCounter() is given to add() which is not a function by assignment, instead of myCounter();
+        
+    </script>
+{% endblock %}

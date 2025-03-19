@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h2>Buy house items</h2>
+    <div>---</div>
+    <div>---</div>
+
+    <div style="height: 200px;">
+        <div style="width: 70%; height: 120px; margin: auto; background-color: blue;"></div>
+    </div>
+    <div>
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 30%; height: 200px; background-color: yellow;">
+                <div>Kitchen items</div>
+            </div>
+            <div style="width: 30%; height: 200px; background-color: green; margin-left: 20px;">
+                <div>Electronics</div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <div style="width: 30%; height: 200px; background-color: pink;">
+                <div>Living room/ <br>
+                furnitures</div>
+            </div>
+            <div style="width: 30%; height: 200px; background-color: blueviolet; margin-left: 15px;">
+                <div>Curtains, rails</div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <div style="width: 30%; height: 200px; background-color: bisque;"></div>
+            <div style="width: 30%; height: 200px; background-color: brown; margin-left: 15px;"></div>
+        </div>
+    </div>
+
+
+    <div class="homepage-navlist-container">
+        <div class="user-homepage-navlist-subdiv">
+            <a href="homepage" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="buyland" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="rent" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="houseitems" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+            <a href="register-as.html" class="user-homepage-navlist-link">
+                <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+            </a>
+        </div>
+        
+    </div>
+
+{% endblock %}

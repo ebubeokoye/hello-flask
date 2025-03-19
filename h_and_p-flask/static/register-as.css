@@ -1,0 +1,57 @@
+/* .div-1-register
+{
+    display: flex;
+} */
+.div-1-subdiv1-register
+{
+    display: flex;
+    margin-top: 100px;
+}
+.createaccount-user-link
+{
+    margin-left: 300px;
+    background-color: pink;
+}
+.createaccount-vendor-link
+{
+    margin-left: 20px;
+    background-color: blue;
+}
+.createaccount-agent-link
+{
+    margin-left: 20px;
+    background-color: blue;
+}
+.register-as-user-dropdown
+{
+    position: absolute;
+    display: none;
+    width: 700px;
+    height: 500px;
+    margin-left: -50px;
+    background-color: white;
+    border: 2px solid lightslategray;
+    border-radius: 5px;
+}
+.register-as-vendor-dropdown
+{
+    position: absolute;
+    display: none;
+    width: 700px;
+    height: 500px;
+    margin-left: -200px;
+    background-color: white;
+    border: 2px solid lightslategray;
+    border-radius: 5px;
+}
+.register-as-agent-dropdown
+{
+    position: absolute;
+    display: none;
+    width: 700px;
+    height: 500px;
+    margin-left: -300px;
+    background-color: white;
+    border: 2px solid lightslategray;
+    border-radius: 5px;
+}

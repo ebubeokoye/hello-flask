@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="form">
+    <h2>Let's get Started</h2>
+    <p>Create an account to buy</p>
+    <form action="{{ url_for ('welcomepage') }}" method="post">
+        <P>
+            <div>First&LastName</div>
+            <input autocomplete="off" autofocus name="first & lastname" placeholder="First&LastName" type="text">
+        </P>
+        <p>
+            <div>Email address</div>
+            <input autocomplete="off" autofocus name="email" placeholder="Email address" type="email">
+        </p>
+        <p>
+            <div>Phone number</div>
+            <input autocomplete="off" autofocus name="number" placeholder="Phone number" type="tel">
+        </p>
+        <p>
+            <div>Create a password</div>
+            <input autocomplete="off" autofocus name="password" placeholder="Create a password" type="password">
+        </p>
+        <p>
+            <div>Re-type the password</div>
+            <input autocomplete="off" autofocus name="confirm_password" placeholder="Confirm password" type="password">
+        </p>
+
+        <input type="submit" value="submit" onsubmit="myHomepage()">
+    </form>
+</div>
+    
+
+{% endblock %}

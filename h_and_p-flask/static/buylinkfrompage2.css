@@ -1,0 +1,118 @@
+body
+{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.section-one-buy
+{
+    position: relative;
+    height: 60px;
+    background-color: orange;
+}
+.section-one-subdiv1-buy
+{
+    position: fixed;
+    display: flex;
+    background-color: white;
+    border-bottom: 5px solid white;
+    border-left-width: 0cm;
+    border-right-width: 0cm;
+    border-style:ridge;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    /* box-sizing: border-box; */
+    margin-top: -10px;
+    padding-top: 30px;
+    margin-left: -10px;
+    width: 110%;
+    height: 60px;
+    text-align: center;
+    /* font-weight: 600; */
+    letter-spacing: 0.3px;
+    z-index: 1;
+    padding-left: 25px;
+}
+.header-h-and-P-text
+{
+    margin-left: 30px;
+}
+.header-Buy-text
+{
+    margin-left: 30px;
+}
+.header-Sell-text
+{
+    margin-left: 30px;
+}
+.header-Stories-text
+{
+    margin-left: 30px;
+}
+.header-FAQs-text
+{
+    margin-left: 30px;
+}
+.header-Resources-text
+{
+    margin-left: 30px;
+}
+.header-Signin-link
+{
+    margin-left: 30px;
+}
+.header-Signin-button
+{
+    width: 80px;
+    height: 40px;
+    border: 1px solid lightslategray;
+    border-radius: 10px;
+    background-color: white;
+}
+.header-CreateAccount-text
+{
+    margin-left: 30px;
+    position: relative;
+}
+    
+.register-as
+{
+    background-color: orange;
+    width: 2000px;
+    height: 100%;
+    margin-left: 300px;
+    display: none;
+    z-index: 1;
+
+}
+
+.section-two-buy
+{
+    display: flex;
+    background-color: blue;
+    height: 500px;
+}
+.section-two-buy-sub1
+{
+    margin-top: 100px;
+    margin-left: 30px;
+}
+.section-two-text
+{
+    color: white;
+}
+.section-two-buy-sub2
+{
+    width: 620px;
+    height: 400px;
+    border: 3px solid gray;
+    margin-top: 80px;
+    margin-left: 30px;
+    animation-name: moveupdown;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes moveupdown 
+{
+    from{margin-top: 80px;}
+    to {margin-top: 40px;}
+}
