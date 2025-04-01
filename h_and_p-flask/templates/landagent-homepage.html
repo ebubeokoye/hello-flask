@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div>---</div>
+<div>---</div>
+
+<div class="agent-homepage-scrollboxes-container">
+    <div class="agent-homepage-scrollbox1">
+        <div>Ongoing orders</div>
+    </div>
+    <div class="agent-homepage-scrollbox2">
+        <div>Completed orders</div>
+    </div>
+    <div class="agent-homepage-scrollbox3">
+        <div>Cancelled appointments</div>
+    </div>
+    <div class="agent-homepage-scrollbox4">Extra</div>
+</div>
+
+<div class="agent-homepage-navlist-container">
+    <div class="user-homepage-navlist-subdiv">
+        <a href="land_agent_homepage" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Orders</div>
+        <a href="agent_land_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Land listing</div>
+        <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Inbox</div>
+        <a href="agent_houseitems_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Appointments</div>
+        <a href="" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Account</div>
+    </div>
+    
+</div>
+
+{% endblock %}

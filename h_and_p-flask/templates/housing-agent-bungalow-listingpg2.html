@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div style="background-color: #004aad; color: white; width: 100%; height: 50px;"> < Bungalow</div>
+
+<input value="Search">
+<div>---</div>
+<div>---</div>
+
+<div style="display: flex; justify-content: center; margin-top: 50px;">
+    <div style="display: flex; justify-content: center;">
+        <div style="width: 600px; height: 500px; background-color: #004aad;">
+            <div style="display: flex; justify-content: center; margin: 20px; border: 1px solid white; background-color: white; border-radius: 3px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">
+                    <a href="form_to_edit_item_housingagent" style="text-decoration: none;">
+                        <div>edit</div>
+                    </a>
+                </div>
+                <input type="checkbox">
+            </div>  
+         
+            <div style="display: flex; justify-content: center; margin: 20px; border: 1px solid white; background-color: white; border-radius: 3px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+            
+            <div style="display: flex; justify-content: center; border: 1px solid white; background-color: white; border-radius: 3px; margin: 20px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+    
+            <div style="display: flex; justify-content: center; border: 1px solid white; background-color: white; border-radius: 3px; margin: 20px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+    
+            <div style="display: flex; justify-content: center; border: 1px solid white; background-color: white; border-radius: 3px; margin: 20px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+            
+            <div style="display: flex; justify-content: center; border: 1px solid white; background-color: white; border-radius: 3px; margin: 20px;">
+                <div style="margin-left: 10px;">
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                    <div>N2,000,000</div>
+                </div>
+
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+    
+            <div style="display: flex; justify-content: center; border: 1px solid white; background-color: white; border-radius: 3px; margin: 20px;">
+                <div>
+                    <img src="{{url_for ('static', filename = 'land-icon.jpg')}}" style="width: 60px; height: 40px;">
+                </div>
+                <div style="margin-left: 20px; width: 1300px;">
+                    <div>Lekki</div>
+                   <div>N2,000,000</div>
+                </div>
+                
+                <div style="color: green; background-color: pink; width: 30px;">edit</div>
+                <input type="checkbox">
+            </div>
+        </div>
+        
+    </div> 
+
+</div>
+<div class="agent-homepage-navlist-container">
+    <div class="user-homepage-navlist-subdiv">
+        <a href="housing_agent_homepage" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Orders</div>
+        <a href="housing_agent_bungalow_listingpg2" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Land listing</div>
+        <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Inbox</div>
+        <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Appointments</div>
+        <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Account</div>
+    </div>
+    
+</div>
+    
+
+{% endblock %}

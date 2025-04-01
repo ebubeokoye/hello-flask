@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div>---</div>
+<!-- lets define the width of the columns and the height of the rows -->
+
+<div style="display: flex; justify-content: center;">
+    <div class="agent-land-listing-pg1-categories">
+
+        <div style="background-color: dodgerblue; height: 600px; width: 600px;">
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">........</div>
+                <input type="button" value="-------"  style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <a href="vendor_kitchenitems_listingpg2" style="text-decoration: none;">
+                    <div style="width: 300px; height: 400px;">Kitchen items</div>    
+                </a>
+                <a href="vendor_kitchenitems_listingpg2" style="margin-left: 40px;">
+                    <input type="button" value="view details" style="width: 100px;">
+                </a>
+
+            </div>
+        
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Electronics</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Living room aesthetics</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <!-- a plot is 1/6th of an acre, so 5 plots will be represnted,
+            as 6 plots means one acre -->
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Furniture</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Curtains, rails</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Beddings</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Interior decor</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>
+            
+            <div class="inner-sub-div-agent-land-listing">
+                <div style="width: 300px;">Others</div>
+                <input type="button" value="view details" style="width: 100px;">
+            </div>           
+        </div>   
+    </div>
+    
+</div>
+
+    <a href="form_to_add_item_housingagent">
+        <div style="position: relative; float: right; right: 400px; width: 0; height: 0; z-index: 1;">
+            <div style="position: fixed; font-size: 20px; width: 40px; height: 25px; border: 1px solid green;
+                border-radius: 100%; background-color: white; box-shadow: inset; bottom: 100px;"> +
+            </div>
+        </div>
+    </a>
+ <div style="clear: both;"></div>
+
+<div class="agent-homepage-navlist-container">
+    <div class="user-homepage-navlist-subdiv">
+        <a href="vendor_homepage" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-home-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Orders</div>
+        <a href="vendor_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='land-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Land listing</div>
+        <a href="agent_rent_listing" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-rent-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Inbox</div>
+        <a href="insights_page_housingagent" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-houseitems-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Appointments</div>
+        <a href="" class="agent-homepage-navlist-link">
+            <img src="{{url_for ('static', filename='user-account-icon.jpg') }}" class="users-homepage-navicon">
+        </a>
+        <div style="color: black; position: absolute;">Account</div>
+    </div>
+    
+</div>
+{% endblock %}
