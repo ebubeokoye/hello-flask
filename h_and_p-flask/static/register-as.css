@@ -5,22 +5,32 @@
 .div-1-subdiv1-register
 {
     display: flex;
+    justify-content: center;
     margin-top: 100px;
 }
 .createaccount-user-link
 {
-    margin-left: 300px;
-    background-color: pink;
+    width: 250px;
+    height: 150px;
+    position: relative;
+    /* margin-left: 20px; */
+    background-color: #004aad;
 }
 .createaccount-vendor-link
 {
-    margin-left: 20px;
-    background-color: blue;
+    width: 250px;
+    height: 150px;
+    position: relative;
+    margin-left: 30px;
+    background-color: #004aad;
 }
 .createaccount-agent-link
 {
-    margin-left: 20px;
-    background-color: blue;
+    width: 250px;
+    height: 150px;
+    position: relative;
+    margin-left: 30px;
+    background-color: #004aad;
 }
 .register-as-user-dropdown
 {
@@ -28,7 +38,9 @@
     display: none;
     width: 700px;
     height: 500px;
-    margin-left: -50px;
+    left: -50px;
+    top: 50px;
+    z-index: 1;
     background-color: white;
     border: 2px solid lightslategray;
     border-radius: 5px;
@@ -39,7 +51,9 @@
     display: none;
     width: 700px;
     height: 500px;
-    margin-left: -200px;
+    top: 50px;
+    left: -150px;
+    z-index: 1;
     background-color: white;
     border: 2px solid lightslategray;
     border-radius: 5px;
@@ -50,8 +64,29 @@
     display: none;
     width: 700px;
     height: 500px;
-    margin-left: -300px;
+    top: 50px;
+    left: -300px;
+    z-index: 1;
     background-color: white;
     border: 2px solid lightslategray;
     border-radius: 5px;
+}
+
+
+.movingbox
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    height: 400px;
+    animation-name: shakingbox;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes shakingbox {
+    0% {left: 200px;}
+    100%{left: 0px;}
 }

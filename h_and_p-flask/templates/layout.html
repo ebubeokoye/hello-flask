@@ -4,6 +4,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <!-- jquery for register-as.html  --> 
         <script>
             $(document).ready(function() {
                 $(".createaccount-user-link").hover(function() {
@@ -12,10 +13,17 @@
                 $(".createaccount-vendor-link").hover(function() {
                     $(".register-as-vendor-dropdown").toggle();
                 });
+
                 $(".createaccount-agent-link").hover(function() {
                     $(".register-as-agent-dropdown").toggle();
                 });
-            });
+                // $(".createaccount-user-link").animate({left: '250px'}, 1000);
+                
+                $(".filteroptions").click(function() {
+                    $(".allfilteroptions").css("display", "block").animate({top: '0px'}, "slow");
+                    $(".filtervh").css({"height": "100vh", "overflow": "hidden"});
+                });
+            });  
         </script>
         <!-- user pages css -->
         <link href="{{ url_for ('static', filename = 'index.css') }}" rel="stylesheet">
@@ -26,6 +34,13 @@
         <!-- user purchase pages class -->
         <link href="{{ url_for ('static', filename = 'user-rent.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'user-buyland.css') }}" rel="stylesheet">
+        <!-- land agents pages -->
+        <link href="{{ url_for ('static', filename = 'landagent-homepage.css') }}" rel="stylesheet">
+        <link href="{{ url_for ('static', filename = 'agent-land-listing.css') }}" rel="stylesheet">
+        <!-- house agents pages -->
+        <link href="{{ url_for ('static', filename = 'housing-agent-bungalow-listingpg2.css') }}" rel="stylesheet">
+        <link href="{{ url_for ('static', filename = 'form-to-add-item-housingagent.css') }}" rel="stylesheet">
+        <link href="{{ url_for ('static', filename = 'insightpage-housingagent.css') }}" rel="stylesheet">
         
         <meta name="viewport" content="initial-scale=1, width=device-width">        
 

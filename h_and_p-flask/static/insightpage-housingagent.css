@@ -1,23 +1,24 @@
-.user-buyland-pg1-lga-scroll
+.housingagent-starratings-scroll
 {
     position: relative;
     /* display: inline-block; */
     width: 100%;
-    height: 300px;
-    margin-left: 20px;
-    padding-top: 10px;
+    display: inline-block;
+    height: 100px;
+    margin-left: 100px;
+    margin-top: 20px;
+    background-color: green;
     /* add the ability to scroll */
     overflow-x: scroll;
-    background-color: white;
 }
 
 /* hide scrollbar for Chrome, Safari and Opera */
-.user-buyland-pg1-lga-scroll::-webkit-scrollbar
+.housingagent-starratings-scroll::-webkit-scrollbar
 {
     display: none;
 }
 
-.user-buyland-pg1-lga-scroll
+.housingagent-starratings-scroll
 {   
     /* hide for IE and Edge */
     -ms-overflow-style: none; 
