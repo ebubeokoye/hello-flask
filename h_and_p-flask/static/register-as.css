@@ -1,36 +1,44 @@
-/* .div-1-register
+.div-1-register
 {
-    display: flex;
-} */
+    margin-top: 0px;
+}
 .div-1-subdiv1-register
 {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    height: 200px;
+    background-color: rgb(240, 240, 229);
+    margin-top: 0px;
 }
 .createaccount-user-link
 {
-    width: 250px;
-    height: 150px;
+    width: 200px;
+    height: 50px;
     position: relative;
+    border: 1px solid rgb(20, 50, 100);
+    border-radius: 10px;
     /* margin-left: 20px; */
-    background-color: #004aad;
+    background-color: rgb(20, 50, 100);
 }
 .createaccount-vendor-link
 {
-    width: 250px;
-    height: 150px;
+    width: 200px;
+    height: 50px;
     position: relative;
+    border: 1px solid rgb(20, 50, 100);
+    border-radius: 10px;
     margin-left: 30px;
-    background-color: #004aad;
+    background-color: rgb(20, 50, 100);
 }
 .createaccount-agent-link
 {
-    width: 250px;
-    height: 150px;
+    width: 200px;
+    height: 50px;
     position: relative;
+    border: 1px solid rgb(20, 50, 100);
+    border-radius: 10px;
     margin-left: 30px;
-    background-color: #004aad;
+    background-color: rgb(20, 50, 100);
 }
 .register-as-user-dropdown
 {
@@ -83,6 +91,7 @@
     animation-name: shakingbox;
     animation-duration: 4s;
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
     animation-direction: alternate;
 }
 

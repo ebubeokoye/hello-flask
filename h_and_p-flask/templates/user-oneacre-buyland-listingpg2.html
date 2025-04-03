@@ -1,24 +1,87 @@
 {% extends "layout.html" %}
 {% block body %}
 
-    <div class="filtervh">
-        <!-- options to filter with -->
-        <div style="position: relative; height: 100vh; bottom: 0; z-index: 2;
-            background-color: black; display: none;" class="allfilteroptions">
-            <div style="position: absolute; width: 100%; color: white;"></div>
-            <div style="display: flex;">
-                <input type="checkbox">
-                <div style="color: white;">Price</div>
-            </div>     
+    <div class="user-viewdetails-filter-container">
+
+        <div style=" z-index: 3; height: 100vh; width: 100%; overflow: hidden; scroll-behavior: smooth; display: none;
+            background-color: white; position: fixed;" class="filterby-overlay">
+
+            <!-- this is an empty div that will move up and be replaced by the important div(id="section2") -->
+            <div class="foldingheight" style="height: 100vh; width: 100%; visibility: hidden;" id="section1"></div>
+
+            <!-- options to filter with(price, location) -->
+            <div style="position: relative; height: 100vh; width: 100%;" class="allfilteroptions" id="section2">
+                <div style="position: absolute; width: 100%;"></div>
+                <div style="display: flex;" class="checkbox-to-display-above-and-below-price">
+                    <input type="checkbox">
+                    <div style="color: black; margin-left: -150px; margin-top: 10px;">Price</div>
+                </div>   
+            
+                <!-- dropdown for price filter -->
+                <div style="display: none; left: 100px; margin-left: 250px; margin-top: 70px;" class="above-and-below-boxes-price">
+                    <div style="width: 40%; position: relative;">
+                        <input autocomplete="0ff" name="above" placeholder="Above" type="number" class="above-below-inputboxes"
+                            style="height: 150px; background-color: gray; border: 1px solid gray;
+                                border-radius: 15px; padding-top: 20px;">
+                        <div  style="display: none; position: absolute;">Above</div>
+                    </div>
+                
+                    <div style="width: 40%; height: 150px; position: relative;">
+                        <input autocomplete="0ff" name="above" placeholder="Below" type="number" class="above-below-inputboxes"
+                            style="height: 150px; background-color: gray; border: 1px solid gray;
+                                border-radius: 15px; border-radius: 15px; padding-top: 20px; margin-left: 100px;">
+                        <div style="display: none; position: absolute;">Below</div>
+                    </div>
+                </div>
     
-            <div style="display: flex;">
-                <input type="checkbox">
-                <div style="color: white;">Location</div>
-            </div>     
+                <div style="display: flex; margin-left: 0px;" class="checkbox-to-display-above-and-below-location">
+                    <input type="checkbox">
+                    <div style="color: black; margin-left: -150px; margin-top: 10px;">Location</div>
+                </div>     
+
+                <!-- dropdown for price filter -->
+                <div style="display: none; margin-left: 250px; margin-top: 70px;" class="above-and-below-boxes-location">
+                    <div style="width: 40%;">
+                        <input autocomplete="0ff" name="above" placeholder="Above" type="number" class="above-below-inputboxes"
+                            style="height: 150px; background-color: gray; border: 1px solid gray;
+                                border-radius: 15px; padding-top: 20px;">
+                        <div  style="display: none;">Above</div>
+                    </div>
+                
+                    <div style="width: 40%; height: 150px;">
+                        <input autocomplete="0ff" name="above" placeholder="Below" type="number" class="above-below-inputboxes"
+                            style="height: 150px; border: 1px solid gray;
+                                border-radius: 15px; border-radius: 15px; padding-top: 20px; margin-left: 100px;">
+                        <div style="display: none;">Below</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <input type="submit" value="Apply" style="border-radius: 15px; height: 70px;">
+                </div>
+
+            </div>
 
         </div>
 
-        <div>---</div>
+        <div style="margin-left: 30px;">
+            <div>
+                <div>
+                    <h2 style="float: left;"> < Buy land </h2>
+                    <a  href="#section2">
+                        <i class="material-icons buyland-searchicon" style="font-size: 30px; float: right; margin-top:10px;">search</i>
+                    </a>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+
+            <div style="height: 200px; margin-top: 10px;">
+                <div style="position: relative; width: 100%; height: 150px; margin: auto;
+                    background-color: #004aad; border: 1px solid blue; border-radius: 10px;">
+                    <h1 style="position: absolute; color: white;">GET STARTED</h1>
+                </div>
+            </div>
+        </div>
 
         <!-- lets define the width of the columns and the height of the rows -->
         <div style="display: flex; justify-content: center;">
@@ -115,12 +178,17 @@
             </div>   
         </div>
 
-        <div style="position: relative; float: right; right: 400px; width: 0; height: 0; z-index: 1;" class="filteroptions">
-            <div style="position: fixed; font-size: 20px; width: 100px; height: 25px; border: 1px solid green;
-                border-radius: 10px; background-color: lightgreen; box-shadow: inset; bottom: 100px;"> filter
+        <!-- I made use of 1) smooth scroll in css to scroll to the filter page( which has id #section2, above)
+        2) i also used jquery to change display from none to block -->
+        <a href="#section2">
+            <div style="position: relative; float: right; right: 400px; width: 0; height: 0; z-index: 1;" class="filteroptions">
+                <div style="position: fixed; font-size: 20px; width: 100px; height: 25px; border: 1px solid green;
+                    border-radius: 10px; background-color: lightgreen; box-shadow: inset; bottom: 100px;"> filter
+                </div>
             </div>
-        </div>
+        </a>
         <div style="clear: both;"></div>
+        
     </div>
 
 

@@ -4,6 +4,8 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
         <!-- jquery for register-as.html  --> 
         <script>
             $(document).ready(function() {
@@ -20,8 +22,20 @@
                 // $(".createaccount-user-link").animate({left: '250px'}, 1000);
                 
                 $(".filteroptions").click(function() {
-                    $(".allfilteroptions").css("display", "block").animate({top: '0px'}, "slow");
-                    $(".filtervh").css({"height": "100vh", "overflow": "hidden"});
+                    $(".filterby-overlay").css("display", "block");
+                    $(".user-viewdetails-filter-container").css("overflow", "hidden");
+                });
+
+                $(".checkbox-to-display-above-and-below-price").click(function() {
+                    $(".above-and-below-boxes-price").css("display", "flex")
+                });
+
+                $(".checkbox-to-display-above-and-below-location").click(function() {
+                    $(".above-and-below-boxes-location").css("display", "flex")
+                });
+
+                $(".buyland-searchicon").click(function() {
+                    $(".filterby-overlay").css("display", "block");
                 });
             });  
         </script>
@@ -31,6 +45,7 @@
         <link href="{{ url_for ('static', filename = 'register-as.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'homepage.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'buylinkfrompage2.css') }}" rel="stylesheet">
+        <link href="{{ url_for ('static', filename = 'user-filterby.css') }}" rel="stylesheet">
         <!-- user purchase pages class -->
         <link href="{{ url_for ('static', filename = 'user-rent.css') }}" rel="stylesheet">
         <link href="{{ url_for ('static', filename = 'user-buyland.css') }}" rel="stylesheet">

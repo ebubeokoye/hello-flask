@@ -1,0 +1,15 @@
+/* lets emove the default counter arrow that comes with input type="number" */
+
+
+
+.above-below-inputboxes::-webkit-outer-spin-button,
+.above-below-inputboxes::-webkit-inner-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]
+{
+    -moz-appearance: textfield;
+}
